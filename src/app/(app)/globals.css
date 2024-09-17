@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #010536;
+  --foreground: #848d96;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #010536;
+    --foreground: #ededed;
+  } */
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-2xl lg:text-4xl text-header;
+  }
+  h2 {
+    @apply text-xl lg:text-3xl text-header;
+  }
+  h3 {
+    @apply text-lg lg:text-2xl text-header;
+  }
+  div {
+    @apply text-sm lg:text-base text-para;
+  }
+  p {
+    @apply text-sm lg:text-base text-para;
+  }
+  a {
+    @apply text-para hover:text-highlight transition text-sm lg:text-base;
+  }
+}
