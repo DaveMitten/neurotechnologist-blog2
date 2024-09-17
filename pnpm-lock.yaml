@@ -79,6 +79,9 @@ importers:
       eslint-config-next:
         specifier: 15.0.0-canary.104
         version: 15.0.0-canary.104(eslint@8.57.0)(typescript@5.5.4)
+      git-cz:
+        specifier: ^4.9.0
+        version: 4.9.0
       postcss:
         specifier: ^8.4.47
         version: 8.4.47
@@ -2334,6 +2337,10 @@ packages:
 
   get-tsconfig@4.7.6:
     resolution: {integrity: sha512-ZAqrLlu18NbDdRaHq+AKXzAmqIUPswPWKUchfytdAjiRFnCe5ojG2bstg6mRiZabkKfCoL/e98pbBELIV/YCeA==}
+
+  git-cz@4.9.0:
+    resolution: {integrity: sha512-cSRL8IIOXU7UFLdbziCYqg8f8InwLwqHezkiRHNSph7oZqGv0togId1kMTfKil6gzK0VaSXeVBb4oDl0fQCHiw==}
+    hasBin: true
 
   github-from-package@0.0.0:
     resolution: {integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==}
@@ -6882,6 +6889,8 @@ snapshots:
   get-tsconfig@4.7.6:
     dependencies:
       resolve-pkg-maps: 1.0.0
+
+  git-cz@4.9.0: {}
 
   github-from-package@0.0.0: {}
 

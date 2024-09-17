@@ -11,6 +11,7 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "ci": "payload migrate && pnpm build",
+    "cz": "git-cz",
     "payload": "payload",
     "generate:types": "payload generate:types",
     "generate:schema": "payload-graphql generate:schema",
@@ -45,6 +46,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
     "eslint-config-next": "15.0.0-canary.104",
+    "git-cz": "^4.9.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.12",
     "typescript": "5.5.4"
