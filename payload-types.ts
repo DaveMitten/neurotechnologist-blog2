@@ -101,22 +101,7 @@ export interface Post {
         | 'generalDeveloperInsight'
       )[]
     | null;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  content_html?: string | null;
+  content?: string | null;
   author: string | User;
   updatedAt: string;
   createdAt: string;

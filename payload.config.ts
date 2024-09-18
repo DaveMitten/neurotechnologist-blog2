@@ -1,6 +1,5 @@
 import path from 'path'
 import { en } from 'payload/i18n/en'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
@@ -13,7 +12,6 @@ import { Users } from './src/collections/Users'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 export default buildConfig({
-  editor: lexicalEditor(),
   collections: [Users, Projects, Posts, Media],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

@@ -23,7 +23,7 @@ export default async function Blog() {
               <div className="border-1 border-white">
                 <div className="p-0.5 w-[250px] group relative">
                   <li className="bg-main py-4">
-                    <h3 className="capitalize ">{post.title}</h3>
+                    <h3 className="capitalize">{post.title}</h3>
                     {typeof post.author === 'string' && <p>{post.author}</p>}
                     <TimeTag date={post.createdAt} />
                   </li>
