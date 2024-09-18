@@ -1,1 +1,8 @@
 https://www.dyslexiasw.com/about-us/website-accessibility
+great developer site
+
+https://2kabhishek.github.io/
+https://2kabhishek.github.io/links/
+
+all his links take you to projects with that filter in place
+i.e. lua => https://github.com/2KAbhishek?tab=repositories&q=&language=lua

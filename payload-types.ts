@@ -12,7 +12,8 @@ export interface Config {
   };
   collections: {
     users: User;
-    pages: Page;
+    projects: Project;
+    posts: Post;
     media: Media;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -64,11 +65,42 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
+ * via the `definition` "projects".
  */
-export interface Page {
+export interface Project {
   id: string;
-  title?: string | null;
+  projectName: string;
+  projectType?: ('typeA' | 'typeB') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title: string;
+  tags?:
+    | (
+        | 'javascript'
+        | 'react'
+        | 'tailwindCss'
+        | 'html'
+        | 'web3'
+        | 'algorithms'
+        | 'payload'
+        | 'aesthetics'
+        | 'learning'
+        | 'computerScience'
+        | 'stripe'
+        | 'nextJs'
+        | 'nodeJs'
+        | 'tech'
+        | 'webDevelopment'
+        | 'generalDeveloperInsight'
+      )[]
+    | null;
   content?: {
     root: {
       type: string;
@@ -84,6 +116,8 @@ export interface Page {
     };
     [k: string]: unknown;
   } | null;
+  content_html?: string | null;
+  author: string | User;
   updatedAt: string;
   createdAt: string;
 }
@@ -93,7 +127,7 @@ export interface Page {
  */
 export interface Media {
   id: string;
-  text?: string | null;
+  alt: string;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -118,8 +152,12 @@ export interface PayloadLockedDocument {
         value: string | User;
       } | null)
     | ({
-        relationTo: 'pages';
-        value: string | Page;
+        relationTo: 'projects';
+        value: string | Project;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: string | Post;
       } | null)
     | ({
         relationTo: 'media';

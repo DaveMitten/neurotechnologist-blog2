@@ -5,14 +5,15 @@ import ReactSVG from '../logos/ReactSVG'
 import TailwindSVG from '../logos/TailwindSVG'
 import TypescriptSVG from '../logos/TypescriptSVG'
 import VercelSVG from '../logos/VercelSVG'
+import SVGContainer from '../elements/SVGContainer'
 
 const logos = {
-  react: <ReactSVG width={'w-12'} />,
-  javascript: <JavascriptSVG width={'w-12'} />,
-  nextjs: <NextjsSVG width={'w-12'} />,
-  tailwindcss: <TailwindSVG width={'w-12'} />,
-  typescript: <TypescriptSVG width={'w-12'} />,
-  vercel: <VercelSVG width={'w-12'} />,
+  react: <SVGContainer svg={ReactSVG} />,
+  javascript: <SVGContainer svg={JavascriptSVG} />,
+  nextjs: <SVGContainer svg={NextjsSVG} />,
+  tailwindcss: <SVGContainer svg={TailwindSVG} />,
+  typescript: <SVGContainer svg={TypescriptSVG} />,
+  vercel: <SVGContainer svg={VercelSVG} />,
 }
 Object.entries(logos).map((logo) => {
   console.log(logo)
@@ -20,9 +21,8 @@ Object.entries(logos).map((logo) => {
 const LogoGrid = () => {
   return (
     <div className="bg-gradient-to-r from-main via-para to-main p-0.5">
-      <div className="grid grid-cols-3 gap-2 p-5 justify-center bg-background h-full w-full bg-main">
+      <div className="grid grid-cols-3 gap-2 p-5 justify-center bg-background h-full min-w-[250px] sm:min-w-[300px] bg-main">
         {Object.entries(logos).map((logo) => {
-          console.log(logo)
           return (
             <div className="w-auto h-auto flex justify-center items-center" key={logo[0]}>
               {logo[1]}

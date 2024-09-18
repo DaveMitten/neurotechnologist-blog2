@@ -26,20 +26,23 @@ body {
 }
 
 @layer base {
+  li {
+    @apply list-none;
+  }
   h1 {
-    @apply text-2xl lg:text-4xl text-header;
+    @apply text-2xl xl:text-4xl text-header;
   }
   h2 {
-    @apply text-xl lg:text-3xl text-header;
+    @apply text-xl xl:text-3xl text-header;
   }
   h3 {
-    @apply text-lg lg:text-2xl text-header;
+    @apply text-lg xl:text-2xl text-header;
   }
   div {
-    @apply text-sm lg:text-base text-para;
+    @apply text-sm xl:text-base text-para;
   }
   p {
-    @apply text-sm lg:text-base text-para;
+    @apply text-sm xl:text-base text-para;
   }
   a {
     @apply text-para hover:text-highlight transition text-sm lg:text-base;
