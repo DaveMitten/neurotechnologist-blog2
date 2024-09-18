@@ -6,9 +6,6 @@ interface RichTextProps {
 }
 
 const RichText = ({text}: RichTextProps) => {
-  console.log("text", text);
-  
-
   const converter = new showdown.Converter({
     // That's it
     extensions: [showdownHighlight({
@@ -19,8 +16,6 @@ const RichText = ({text}: RichTextProps) => {
     })]
 });
   const html = typeof text === "string" ? converter.makeHtml(text) : <div>No text provided</div>;
-
-  console.log("html", html);
 
   return <div dangerouslySetInnerHTML={{ __html: html }} />;
 };

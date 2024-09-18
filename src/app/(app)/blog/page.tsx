@@ -12,7 +12,7 @@ export default async function Blog() {
   }
 
   const posts = 'docs' in postsCollection ? postsCollection.docs : []
-  console.log(posts)
+
   return (
     <section className="h-full space-y-10 w-full">
       <h1>Blog</h1>

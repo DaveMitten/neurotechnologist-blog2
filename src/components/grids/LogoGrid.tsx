@@ -15,9 +15,7 @@ const logos = {
   typescript: <SVGContainer svg={TypescriptSVG} />,
   vercel: <SVGContainer svg={VercelSVG} />,
 }
-Object.entries(logos).map((logo) => {
-  console.log(logo)
-})
+
 const LogoGrid = () => {
   return (
     <div className="bg-gradient-to-r from-main via-para to-main p-0.5">

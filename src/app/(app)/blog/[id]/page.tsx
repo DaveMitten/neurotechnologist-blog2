@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import Button from '../../../../components/elements/Button'
 import TimeTag from '../../../../components/elements/TimeTag'
 import { getPostById } from '../../../actions/blog'
@@ -19,7 +18,7 @@ export default async function Post({ params }: { params: { id: string } }) {
         <TimeTag date={post.createdAt} />
       </div>
       {/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
-      <RichText text={post.content} />
+      <RichText text={post?.content ?? ''} />
     </article>
   )
 }
