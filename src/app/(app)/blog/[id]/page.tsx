@@ -1,24 +1,21 @@
-import Button from '../../../../components/elements/Button'
-import TimeTag from '../../../../components/elements/TimeTag'
+import Post from '../../../../components/composite/PostPage'
 import { getPostById } from '../../../actions/blog'
-import RichText from '../../../../components/payload/RichText'
 
-export default async function Post({ params }: { params: { id: string } }) {
+export default async function PostWrapper({ params }: { params: { id: string } }) {
   const post = await getPostById(params.id)
   if (!post) {
     return <div>Post not found</div>
   }
 
-  // const content = post.content_html ? sanitizeHtml(post.content_html) : ''
-
   return (
-    <article className="prose lg:prose-xl space-y-4">
-      <div className="flex justify-between">
-        <Button href="/blog">Back</Button>
-        <TimeTag date={post.createdAt} />
-      </div>
-      {/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
-      <RichText text={post?.content ?? ''} />
-    </article>
+    <Post
+      id={post.id}
+      title={post.title}
+      author={typeof post.author === 'object' ? post.author.email : post.author}
+      updatedAt={post.updatedAt}
+      createdAt={post.createdAt}
+      content={post.content}
+      tags={post.tags}
+    />
   )
 }

@@ -1,23 +1,33 @@
-import React from "react";
-import * as showdown from "showdown";
-import showdownHighlight from "showdown-highlight";
+'use client'
+import React, { useCallback, useEffect, useState } from 'react'
+import { showdownConverterWithSyntaxHighlighting } from '../../lib/richTextConverters'
 interface RichTextProps {
-  text: string;
+  text: string
 }
 
-const RichText = ({text}: RichTextProps) => {
-  const converter = new showdown.Converter({
-    // That's it
-    extensions: [showdownHighlight({
-        // Whether to add the classes to the <pre> tag, default is false
-        pre: true
-        // Whether to use hljs' auto language detection, default is true
-    ,   auto_detection: true
-    })]
-});
-  const html = typeof text === "string" ? converter.makeHtml(text) : <div>No text provided</div>;
+const RichText = ({ text }: RichTextProps) => {
+  const [html, setHtml] = useState<string>('')
 
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
-};
+  const convertToHtml = useCallback(async () => {
+    if (typeof text === 'string') {
+      setHtml(await showdownConverterWithSyntaxHighlighting(text))
+    } else {
+      setHtml('')
+    }
+  }, [text])
 
-export default RichText;
+  useEffect(() => {
+    if (text && !html) {
+      convertToHtml()
+    }
+  }, [convertToHtml, text, html])
+
+  return (
+    <article
+      className="prose prose-headings:text-header prose-p:text-para prose-a:text-link prose-a:underline prose-a:font-mono prose-a:font-bold prose-a:text-sm prose-a:p-0 prose-li:text-para prose-ul:text-para prose-li:list-disc prose-ol:text-para prose-blockquote:text-para prose-blockquote:font-bold prose-code:text-para prose-code:font-mono prose-code:bg-code prose-code:p-1  prose-code:text-sm"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  )
+}
+
+export default RichText

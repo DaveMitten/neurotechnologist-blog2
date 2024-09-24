@@ -9,7 +9,10 @@ interface ButtonProps {
 const Button = ({ children, href }: ButtonProps) => {
   const router = useRouter()
   return (
-    <button onClick={() => router.push(href)} className="btn btn-primary group relative">
+    <button
+      onClick={() => router.push(href)}
+      className="btn btn-primary group relative text-white opacity-75"
+    >
       {children}
       <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 group-hover:transition-all"></span>
       <span className="absolute -bottom-1 right-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 group-hover:transition-all"></span>

@@ -1,27 +1,23 @@
-import React, { ReactNode } from 'react'
-import Image from 'next/image'
-import LogoGrid from '../grids/LogoGrid'
+import React from 'react'
+import { Button } from '../ui/button'
 
 interface HeroProps {
-  title: string
-  description: string
-  image?: {
-    src: string
-    alt: string
-  }
-  gif?: ReactNode
+  header: string
+  text: string
+  button: string
 }
 
-const Hero = ({ title, description, image, gif }: HeroProps) => {
+const Hero = (props: HeroProps) => {
+  const { header, text, button } = props
   return (
-    <section className="w-fullmd:w-5/6 lg:w-4/6 grid grid-flow-row md:grid-flow-col mx-auto items-center space-y-6 md:space-y-0 md:space-x-4">
-      <article className="flex flex-col space-y-4 text-center md:text-left">
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </article>
-      {image && <Image src={image.src} alt={image?.alt} />}
-      {gif && gif}
-      {!image && !gif && <LogoGrid />}
+    <section className="text-center my-24">
+      <h1 className={`mb-4 ${header} transition-colors duration-300`}>Imagine | Create | Adapt</h1>
+      <p className={`mb-8 ${text} transition-colors duration-300`}>
+        Transforming ideas into robust, scalable solutions.
+      </p>
+      <Button className={`${button} text-white font-bold py-2 px-4 transition-colors duration-300`}>
+        View Projects
+      </Button>
     </section>
   )
 }

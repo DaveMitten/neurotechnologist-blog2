@@ -44,7 +44,7 @@ const LogoCollection = ({ logos, size, opacity }: LogoCollectionProps) => {
     <div className="flex gap-4">
       {logoOptions[logos].map((logo: LogoLink, index: number) => {
         return (
-          <a href={logo.url} key={index} className="hover:bg-highlight rounded-full p-1">
+          <a href={logo.url} key={index} className="hover:bg-highlight  p-1">
             <SVGLogo name={logo.icon} size={sizes[size]} opacity={opacities[opacity]} />
           </a>
         )

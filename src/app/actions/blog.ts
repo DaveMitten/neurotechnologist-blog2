@@ -23,13 +23,16 @@ export async function getPostsCollection() {
   }
 }
 
-export async function getPostById(id: string) {
+import { Post } from 'payload-types'
+
+export async function getPostById(id: string): Promise<Post | null> {
   try {
     const post = await payload.findByID({
       collection: 'posts',
       id: id,
     })
-    return post
+
+    return post as Post
   } catch (error) {
     console.error('Error fetching post:', error)
     return null
