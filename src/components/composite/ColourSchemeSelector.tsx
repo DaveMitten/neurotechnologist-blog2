@@ -11,6 +11,7 @@ import {
   SelectIcon,
 } from '@radix-ui/react-select'
 import { ChevronDownIcon } from 'lucide-react'
+import React from 'react'
 
 interface ColorSchemeSelectorProps {
   initialScheme: string

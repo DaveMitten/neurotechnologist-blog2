@@ -56,11 +56,9 @@ body {
   a {
     @apply text-para hover:text-highlight transition text-sm lg:text-base;
   }
-  pre {
-    @apply bg-gray-800 text-white p-4;
-  }
+
   code {
-    @apply bg-gray-100 text-red-500 px-1 py-0.5 font-mono text-sm;
+    @apply text-highlight font-mono text-sm;
   }
 
   :root {

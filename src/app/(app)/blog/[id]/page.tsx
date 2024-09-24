@@ -14,8 +14,8 @@ export default async function PostWrapper({ params }: { params: { id: string } }
       author={typeof post.author === 'object' ? post.author.email : post.author}
       updatedAt={post.updatedAt}
       createdAt={post.createdAt}
-      content={post.content}
-      tags={post.tags}
+      content={post?.content ?? ''}
+      tags={post?.tags ?? []}
     />
   )
 }

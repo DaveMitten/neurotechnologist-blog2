@@ -1,9 +1,10 @@
 'use client'
 import React from 'react'
 import { Post as PostProps } from 'payload-types'
-import TimeTag from '../elements/TimeTag'
+import TimeTag from '@/components/elements/TimeTag'
+
+import Button from '@/components/elements/Button'
 import MarkdownRenderer from '../payload/markdown/MarkdownRenderer'
-import Button from '../elements/Button'
 
 const AuthorTag = ({ author }: { author: string }) => {
   return (
@@ -14,8 +15,13 @@ const AuthorTag = ({ author }: { author: string }) => {
   )
 }
 
-interface InPagePostProps extends PostProps {
+interface InPagePostProps extends Omit<PostProps, 'tags'> {
   author: string
+  tags: string[]
+  updatedAt: string
+  createdAt: string
+  content: string
+  title: string
 }
 
 const Post = ({ author, title, createdAt, content }: InPagePostProps) => {
