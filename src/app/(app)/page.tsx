@@ -2,9 +2,6 @@
 
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import Hero from '../../components/sections/Hero'
-import { ColorScheme } from '../../types/general'
-import getScheme from '../actions/getScheme'
-import { useEffect, useState } from 'react'
 import LogoGrid from '../../components/grids/LogoGrid'
 import ExperienceList from '../../components/lists/ExperienceList'
 import SVGContainer from '../../components/elements/SVGContainer'
@@ -17,20 +14,6 @@ import TypescriptSVG from '../../components/logos/TypescriptSVG'
 import VercelSVG from '../../components/logos/VercelSVG'
 
 export default function Page() {
-  const [colorSchemeChoice, setColorSchemeChoice] = useState<ColorScheme | null>(null)
-
-  const handleColorSchemeChange = async () => {
-    const { colorSchemeChoice } = await getScheme()
-    setColorSchemeChoice(colorSchemeChoice)
-  }
-  useEffect(() => {
-    handleColorSchemeChange()
-  }, [])
-
-  if (!colorSchemeChoice) return null
-
-  const { card } = colorSchemeChoice
-
   const logos: { [key: string]: { svg: React.ReactNode; link: string } } = {
     react: { svg: <SVGContainer svg={ReactSVG} />, link: 'https://react.dev/' },
     javascript: {
@@ -49,18 +32,16 @@ export default function Page() {
 
   return (
     <main className="container mx-auto">
-      <Hero {...colorSchemeChoice} />
+      <Hero />
       <section className="flex justify-center mx-auto mb-16">
-        <Card size="lg" className={`${card} border-transparent transition-colors duration-300`}>
-          <CardTitle className={`${colorSchemeChoice.header} text-center`}>
-            Current Tech Stack
-          </CardTitle>
+        <Card size="lg" className="border-transparent transition-colors duration-300">
+          <CardTitle className="text-center">Current Tech Stack</CardTitle>
           <CardContent>
-            <LogoGrid bgColor={card} logos={logos} />
+            <LogoGrid logos={logos} />
           </CardContent>
         </Card>
       </section>
-      <ExperienceList {...colorSchemeChoice} />
+      <ExperienceList />
     </main>
   )
 }

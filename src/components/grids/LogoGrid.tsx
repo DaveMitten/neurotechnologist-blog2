@@ -1,10 +1,8 @@
 import React from 'react'
 
-const LogoGrid = ({ bgColor, logos }: { bgColor: string; logos: { [key: string]: any } }) => {
+const LogoGrid = ({ logos }: { logos: { [key: string]: any } }) => {
   return (
-    <div
-      className={`grid grid-cols-3  md:flex md:flex-wrap gap-y-4 md:gap-y-0 space-x-0 md:space-x-4 ${bgColor} h-full `}
-    >
+    <div className="grid grid-cols-3  md:flex md:flex-wrap gap-y-4 md:gap-y-0 space-x-0 md:space-x-4 h-full">
       {Object.entries(logos).map((logo) => {
         return (
           <a key={logo[0]} href={logo[1].link} target="_blank" rel="noopener noreferrer">

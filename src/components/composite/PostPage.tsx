@@ -26,9 +26,9 @@ interface InPagePostProps extends Omit<PostProps, 'tags'> {
 
 const Post = ({ author, title, createdAt, content }: InPagePostProps) => {
   return (
-    <article>
+    <article className="space-y-4 max-w-3xl mx-auto">
       <Button href="/blog">Back</Button>
-      <div className="space-y-4 mt-6">
+      <div className="space-y-4 mt-6 bg-gray-900 p-6 rounded-sm">
         <div className="flex justify-between">
           <TimeTag date={createdAt} />
           <AuthorTag author={author} />

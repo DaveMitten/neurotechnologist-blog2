@@ -3,12 +3,10 @@
 import React from 'react'
 import Nav from './Nav'
 
-import { ColorScheme } from '../../types/general'
-
-const Header = (colorSchemeChoice: ColorScheme) => {
+const Header = () => {
   return (
     <header>
-      <Nav {...colorSchemeChoice} />
+      <Nav />
     </header>
   )
 }

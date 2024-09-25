@@ -1,14 +1,7 @@
 import React from 'react'
 import { Github, Linkedin, Twitter } from 'lucide-react'
-import { ColorScheme } from '../../types/general'
 
-const Footer = ({
-  initialColorScheme,
-  colorSchemeChoice,
-}: {
-  initialColorScheme: string
-  colorSchemeChoice: ColorScheme
-}) => {
+const Footer = () => {
   const logoSize = 'w-6 h-6'
   const logos = {
     github: { icon: <Github className={logoSize} />, link: 'https://github.com/DaveMitten' },
@@ -19,7 +12,7 @@ const Footer = ({
     twitter: { icon: <Twitter className={logoSize} />, link: 'https://x.com/DavidJamesMitt1' },
   }
   return (
-    <footer className={`${colorSchemeChoice.card} py-8 transition-colors duration-300 w-full`}>
+    <footer className="py-8 transition-colors duration-300 w-full">
       <div className="px-4 sm:px-0 container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="transition-colors duration-300">
           © 2024 David James Mitten. All rights reserved.
@@ -29,11 +22,7 @@ const Footer = ({
         </div> */}
         <div className="flex space-x-4">
           {Object.values(logos).map(({ icon, link }) => (
-            <a
-              key={link}
-              href={link}
-              className={`${colorSchemeChoice.text} hover:${colorSchemeChoice.header} transition-colors duration-300`}
-            >
+            <a key={link} href={link} className="transition-colors duration-300">
               {icon}
             </a>
           ))}

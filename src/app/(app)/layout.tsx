@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '../../components/sections/Header'
 
-import getScheme from '../actions/getScheme'
 import Footer from '../../components/sections/Footer'
 
 import { Roboto, Roboto_Mono } from 'next/font/google'
@@ -29,18 +28,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { colorSchemeChoice, fontSchemeChoice, initialColorScheme } = await getScheme()
-
   return (
     <html lang="en" className={`${roboto.className} ${robotoMono.className}`}>
-      <body
-        className={` min-h-screen ${colorSchemeChoice.bg} ${colorSchemeChoice.text} ${fontSchemeChoice} font-sans transition-colors duration-300 flex flex-col`}
-      >
-        <div className="container mx-auto flex-grow px-4 sm:px-0 mb-16">
-          <Header {...colorSchemeChoice} />
+      <body className={` min-h-screen font-sans transition-colors duration-300 flex flex-col`}>
+        <div className="container mx-auto flex-grow px-4 sm:px-0 mb-16 mt-6">
+          <Header />
           {children}
         </div>
-        <Footer initialColorScheme={initialColorScheme} colorSchemeChoice={colorSchemeChoice} />
+        <Footer />
       </body>
     </html>
   )

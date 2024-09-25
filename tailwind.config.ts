@@ -14,10 +14,10 @@ const config: Config = {
         mono: ['var(--font-roboto-mono)'],
       },
       colors: {
-        main: '#010536',
+        main: '#201915',
         header: '#2DD4BF',
-        para: '#848d96',
-        highlight: '#CA486d',
+        para: '#d9dada',
+        highlight: '#da5d54',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
