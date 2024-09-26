@@ -2,6 +2,9 @@ import { CollectionConfig } from 'payload'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
+  admin: {
+    useAsTitle: 'title',
+  },
   fields: [
     {
       name: 'title',
@@ -83,20 +86,19 @@ export const Posts: CollectionConfig = {
         },
       ],
     },
-     {
+    {
       name: 'content',
       type: 'textarea',
     },
-    // {
-    //   name: 'content',
-    //   type: 'richText',
-    // },
-
     {
       name: 'author',
+      label: 'Author',
       type: 'relationship',
-      relationTo: 'users',
+      relationTo: 'authors',
       required: true,
+      admin: {
+        position: 'sidebar',
+      },
     },
   ],
 }

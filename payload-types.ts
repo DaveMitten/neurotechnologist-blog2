@@ -11,6 +11,7 @@ export interface Config {
     users: UserAuthOperations;
   };
   collections: {
+    authors: Author;
     users: User;
     projects: Project;
     posts: Post;
@@ -48,10 +49,24 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "authors".
+ */
+export interface Author {
+  id: string;
+  fullName: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
   id: string;
+  firstName?: string | null;
+  lastName?: string | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -102,7 +117,7 @@ export interface Post {
       )[]
     | null;
   content?: string | null;
-  author: string | User;
+  author: string | Author;
   updatedAt: string;
   createdAt: string;
 }
@@ -132,6 +147,10 @@ export interface Media {
 export interface PayloadLockedDocument {
   id: string;
   document?:
+    | ({
+        relationTo: 'authors';
+        value: string | Author;
+      } | null)
     | ({
         relationTo: 'users';
         value: string | User;
