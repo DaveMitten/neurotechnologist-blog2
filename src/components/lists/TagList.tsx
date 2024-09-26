@@ -1,26 +1,25 @@
 import React from 'react'
 import { Button } from '../ui/button'
+import { Tag } from '../../../payload-types'
+// import { Tags } from '../../types/general'
 
 interface TagListProps {
-  tags: string[]
-  onTagClick: (tag: string) => void
+  tags: Tag[]
+  onTagClick: (tag: Tag) => void
 }
 
 const TagList: React.FC<TagListProps> = ({ tags, onTagClick }) => {
-  // Remove duplicates and sort tags alphabetically
-  const uniqueTags = Array.from(new Set(tags)).sort()
-
   return (
     <div className="flex flex-col space-y-2">
-      {uniqueTags.map((tag) => (
+      {tags.map((tag: Tag) => (
         <Button
-          key={tag}
+          key={tag.title}
           variant="outline"
           size="sm"
           onClick={() => onTagClick(tag)}
           className="justify-start"
         >
-          {tag}
+          {tag.title}
         </Button>
       ))}
     </div>

@@ -1,8 +1,16 @@
+import { Post } from '../../../../payload-types'
 import BlogPosts from '../../../components/sections/BlogPosts'
 import { getPostsCollection } from '../../actions/blog'
+import { getTags } from '../../actions/tags'
 
+function findMostRecentPost(posts: Post[]) {
+  return posts.reduce((mostRecent, current) => {
+    return new Date(mostRecent.createdAt) > new Date(current.createdAt) ? mostRecent : current
+  })
+}
 export default async function Blog() {
   const postsCollection = await getPostsCollection()
+  const tags = await getTags()
   if (
     !postsCollection ||
     (Array.isArray(postsCollection) && postsCollection.length === 0) ||
@@ -12,5 +20,6 @@ export default async function Blog() {
   }
 
   const posts = 'docs' in postsCollection ? postsCollection.docs : []
-  return <BlogPosts posts={posts} />
+
+  return <BlogPosts posts={posts} tags={tags} mostRecentPost={findMostRecentPost(posts)} />
 }

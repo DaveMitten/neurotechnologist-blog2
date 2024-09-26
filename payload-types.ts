@@ -16,6 +16,7 @@ export interface Config {
     projects: Project;
     posts: Post;
     media: Media;
+    tags: Tag;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -96,28 +97,19 @@ export interface Project {
 export interface Post {
   id: string;
   title: string;
-  tags?:
-    | (
-        | 'javascript'
-        | 'react'
-        | 'tailwindCss'
-        | 'html'
-        | 'web3'
-        | 'algorithms'
-        | 'payload'
-        | 'aesthetics'
-        | 'learning'
-        | 'computerScience'
-        | 'stripe'
-        | 'nextJs'
-        | 'nodeJs'
-        | 'tech'
-        | 'webDevelopment'
-        | 'generalDeveloperInsight'
-      )[]
-    | null;
+  tag?: (string | Tag)[] | null;
   content?: string | null;
   author: string | Author;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: string;
+  title: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -166,6 +158,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'tags';
+        value: string | Tag;
       } | null);
   globalSlug?: string | null;
   _lastEdited: {

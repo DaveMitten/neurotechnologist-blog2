@@ -15,7 +15,7 @@ export default async function PostWrapper({ params }: { params: { id: string } }
       updatedAt={post.updatedAt}
       createdAt={post.createdAt}
       content={post?.content ?? ''}
-      tags={post?.tags ?? []}
+      tags={post?.tag ?? null}
     />
   )
 }
