@@ -30,12 +30,13 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto.className} ${robotoMono.className}`}>
-      <body className={` min-h-screen font-sans transition-colors duration-300 flex flex-col`}>
+      <body className="min-h-screen font-sans transition-colors duration-300 flex flex-col relative ">
         <div className="container mx-auto flex-grow px-4 sm:px-0 mb-16 mt-6">
           <Header />
           {children}
         </div>
         <Footer />
+        <div className="absolute inset-0 -z-10 w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#2DD4BF_100%)]" />
       </body>
     </html>
   )
