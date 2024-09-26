@@ -73,7 +73,6 @@ const ExperienceList = () => {
   const [limit, setLimit] = useState(1)
 
   const handleMore = () => {
-    // if (limit >= experience.length || limit >= 3) {
     if (limit >= 3) {
       return
     }
@@ -84,7 +83,6 @@ const ExperienceList = () => {
     if (limit === 1) {
       return
     }
-    console.log('less', limit)
     setLimit(limit - 1)
   }
   return (

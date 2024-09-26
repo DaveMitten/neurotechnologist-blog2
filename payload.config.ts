@@ -9,11 +9,12 @@ import { Posts } from './src/collections/Posts'
 import { Projects } from './src/collections/Projects'
 import { Users } from './src/collections/Users'
 import { Authors } from './src/collections/Authors'
+import { Tags } from './src/collections/Tags'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 export default buildConfig({
-  collections: [Authors, Users, Projects, Posts, Media],
+  collections: [Authors, Users, Projects, Posts, Media, Tags],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

@@ -1,45 +1,95 @@
 'use client'
 
-import React from 'react'
-import { Post } from '../../../payload-types'
-import TimeTag from '../elements/TimeTag'
-import { Card, CardContent, CardTitle } from '../ui/card'
+import React, { useCallback, useEffect, useState } from 'react'
+import { Post, Tag } from '../../../payload-types'
+import PostCard from '../cards/PostCard'
+import TagList from '../lists/TagList'
+import { getTags } from '../../app/actions/tags'
+import { Button } from '../ui/button'
 
 interface BlogPostProps {
   posts: Post[]
+  tags: Tag[]
+  mostRecentPost: Post
 }
 
-const BlogPosts = ({ posts }: BlogPostProps) => {
+const BlogPosts = ({ posts, tags, mostRecentPost }: BlogPostProps) => {
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts)
+  const [activeTag, setActiveTag] = useState<Tag | null>(null)
+
+  const handleTagClick = (tag: Tag) => {
+    if (activeTag?.title === tag.title) {
+      // If clicking the active tag, remove the filter
+      setActiveTag(null)
+      setFilteredPosts(posts)
+    } else {
+      // Apply the filter
+      setActiveTag(tag)
+      setFilteredPosts(
+        posts.filter((post) => {
+          if (!post.tag) return null
+          return post?.tag?.includes(tag.title)
+        }),
+      )
+    }
+  }
+
   return (
     <section className="space-y-10 w-full">
       <h1>Blog</h1>
-      <div className="grid grid-cols-2 grid-flow-row gap-10">
-        {posts.map((post) => {
-          return (
-            <a key={post.title} href={`/blog/${post.id}`}>
-              <Card className=" border-transparent transition-colors duration-300 flex justify-center max-w-max">
-                <li className="py-4">
-                  <CardContent className="p-6 space-y-2">
-                    <CardTitle className="text-2xl font-bold group relative">
-                      {post.title}
-                      <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 group-hover:transition-all"></span>
-                      <span className="absolute -bottom-1 right-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 group-hover:transition-all"></span>
-                    </CardTitle>
-                    <div className="flex flex-row gap-2 text-xs">
-                      {typeof post.author === 'object' ? (
-                        <p>{post.author.email}</p>
-                      ) : (
-                        <p>{post.author}</p>
-                      )}
+      <div className="grid grid-cols-4 gap-10">
+        <div className="col-span-3 flex flex-col gap-10 max-w-2xl space-y-10">
+          <div className="space-y-4">
+            <h3>Most Recent</h3>
+            {mostRecentPost && (
+              <PostCard
+                key={mostRecentPost.id}
+                title={mostRecentPost.title}
+                id={mostRecentPost.id}
+                author={mostRecentPost.author}
+                createdAt={mostRecentPost.createdAt}
+              />
+            )}
+          </div>
+          <div>
+            <h3 className="flex items-end justify-between gap-2">
+              Posts{' '}
+              <span className="text-sm text-para/70">
+                {activeTag && `Filter: ${activeTag.title}`}
+                {activeTag && (
+                  <Button
+                    onClick={() => {
+                      setActiveTag(null)
+                      setFilteredPosts(posts)
+                    }}
+                    size="sm"
+                    className="hover:bg-white/70"
+                    variant="ghost"
+                  >
+                    Clear filter
+                  </Button>
+                )}
+              </span>
+            </h3>
 
-                      <TimeTag date={post.createdAt} />
-                    </div>
-                  </CardContent>
-                </li>
-              </Card>
-            </a>
-          )
-        })}
+            {filteredPosts.map((post) => {
+              if (post.id === mostRecentPost?.id) return null
+              return (
+                <PostCard
+                  key={post.id}
+                  title={post.title}
+                  id={post.id}
+                  author={post.author}
+                  createdAt={post.createdAt}
+                />
+              )
+            })}
+          </div>
+        </div>
+        <div className="flex flex-col space-y-4">
+          <h3>Tags</h3>
+          <TagList tags={tags} onTagClick={handleTagClick} />
+        </div>
       </div>
     </section>
   )

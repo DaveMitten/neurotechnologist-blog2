@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Post as PostProps } from 'payload-types'
+import { Post as PostProps, Tag } from 'payload-types'
 import TimeTag from '@/components/elements/TimeTag'
 
 import Button from '@/components/elements/Button'
@@ -17,7 +17,7 @@ const AuthorTag = ({ author }: { author: string }) => {
 
 interface InPagePostProps extends Omit<PostProps, 'tags'> {
   author: string
-  tags: string[]
+  tags: (string | Tag)[] | null
   updatedAt: string
   createdAt: string
   content: string
