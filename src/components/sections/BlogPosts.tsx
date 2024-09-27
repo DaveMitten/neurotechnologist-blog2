@@ -41,15 +41,7 @@ const BlogPosts = ({ posts, tags, mostRecentPost }: BlogPostProps) => {
         <div className="col-span-3 flex flex-col gap-10 max-w-2xl space-y-10">
           <div className="space-y-4">
             <h3>Most Recent</h3>
-            {mostRecentPost && (
-              <PostCard
-                key={mostRecentPost.id}
-                title={mostRecentPost.title}
-                id={mostRecentPost.id}
-                author={mostRecentPost.author}
-                createdAt={mostRecentPost.createdAt}
-              />
-            )}
+            {mostRecentPost && <PostCard post={mostRecentPost} />}
           </div>
           <div>
             <h3 className="flex items-end justify-between gap-2">
@@ -74,15 +66,7 @@ const BlogPosts = ({ posts, tags, mostRecentPost }: BlogPostProps) => {
 
             {filteredPosts.map((post) => {
               if (post.id === mostRecentPost?.id) return null
-              return (
-                <PostCard
-                  key={post.id}
-                  title={post.title}
-                  id={post.id}
-                  author={post.author}
-                  createdAt={post.createdAt}
-                />
-              )
+              return <PostCard key={post.slug} post={post} />
             })}
           </div>
         </div>
