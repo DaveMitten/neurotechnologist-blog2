@@ -44,7 +44,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       collection: 'posts',
       where: {
         slug: {
-          contains: slug,
+          equals: slug,
         },
       },
     })
