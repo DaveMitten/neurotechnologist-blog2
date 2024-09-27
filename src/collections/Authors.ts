@@ -9,9 +9,9 @@ export const Authors: CollectionConfig = {
     {
       name: 'fullName',
       type: 'text',
-      required: true,
+      label: 'Full Name',
       admin: {
-        hidden: true,
+        readOnly: true,
       },
       hooks: {
         beforeValidate: [
@@ -24,11 +24,13 @@ export const Authors: CollectionConfig = {
     {
       name: 'firstName',
       label: 'First Name',
+      required: true,
       type: 'text',
     },
     {
       name: 'lastName',
       label: 'Last Name',
+      required: true,
       type: 'text',
     },
   ],

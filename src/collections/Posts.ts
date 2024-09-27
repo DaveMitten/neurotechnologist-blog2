@@ -1,5 +1,15 @@
 import { CollectionConfig } from 'payload'
 
+function slugify(text: string) {
+  // Remove special characters and replace spaces with hyphens
+  const slug = text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+  return slug
+}
+
 export const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
@@ -11,6 +21,23 @@ export const Posts: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'slug',
+      type: 'text',
+      label: 'Slug',
+      unique: true,
+      admin: {
+        readOnly: true,
+      },
+      hooks: {
+        beforeValidate: [
+          async ({ data }) => {
+            return `${slugify(data?.title)}`
+          },
+        ],
+      },
+    },
+
     {
       name: 'tag',
       type: 'relationship',

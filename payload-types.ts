@@ -54,9 +54,9 @@ export interface UserAuthOperations {
  */
 export interface Author {
   id: string;
-  fullName: string;
-  firstName?: string | null;
-  lastName?: string | null;
+  fullName?: string | null;
+  firstName: string;
+  lastName: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -97,6 +97,7 @@ export interface Project {
 export interface Post {
   id: string;
   title: string;
+  slug?: string | null;
   tag?: (string | Tag)[] | null;
   content?: string | null;
   author: string | Author;
