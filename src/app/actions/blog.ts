@@ -3,12 +3,14 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { Post } from 'payload-types'
+import { revalidatePath } from 'next/cache'
 
 const payload = await getPayload({
   config: configPromise,
 })
 
 export async function getPostsCollection() {
+  revalidatePath('/blog', 'page')
   try {
     const collection = await payload.find({
       collection: 'posts',
