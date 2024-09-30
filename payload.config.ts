@@ -38,7 +38,7 @@ export default buildConfig({
     autoLogin: {
       email: 'dev@payloadcms.com',
       password: 'test',
-      prefillOnly: true,
+      // prefillOnly: true,
     },
   },
   async onInit(payload) {
