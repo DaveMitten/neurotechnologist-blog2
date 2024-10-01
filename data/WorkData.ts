@@ -1,4 +1,20 @@
-export const workExperience = [
+type WorkExperience = {
+  title: string
+  company: string
+  employmentType: string
+  startDate: string
+  endDate: string
+  duration: string
+  location: string
+  description?: string
+  skills?: string[]
+  links?: {
+    github?: string
+    personal?: string
+  }
+  courses?: string[]
+}
+export const workExperience: WorkExperience[] = [
   {
     title: 'Software Engineer',
     company: 'Antler Digital',
@@ -14,7 +30,7 @@ export const workExperience = [
       'Next.js',
       'TypeScript',
       'Tailwind CSS',
-      'payload cms',
+      'Payload CMS',
       'Stripe',
       'Node.js',
       'Express.js',
@@ -34,6 +50,20 @@ export const workExperience = [
     endDate: 'Sep 2024',
     duration: '3 yrs 11 mos',
     location: 'Remote',
+    description: `
+The role required strong technical expertise, leadership skills, and the ability to balance hands-on development with team management responsibilities.
+
+- Collaborated with the CTO in overall technical direction of the One Tribe product
+- Collaborated with other developers in the team joining in with stand-ups and paired programming.
+- Wrote high quality code 
+- Implemented best practices for coding standards, testing, and deployment
+- Conducted regular code reviews, QA, and testing.
+- Assisted in designing and building UX flows, UI components, and layouts.
+- Overcame complex challenges with simple, accurate solutions.
+- Ensures project delivery within specified timelines and budget
+- Stayed current with industry trends and emerging technologies
+
+`,
     skills: [
       'JavaScript',
       'Web Engineering',
@@ -60,27 +90,31 @@ export const workExperience = [
     description:
       'Working as a freelancer designer and developer through custom coding solutions (HTML5,CSS3, JS, React, Gatsby), including interactions, UI components and their design, UX/UI design. Various builds ranging a wide array of skills, frontend focus with some backend responsibilities. From standard website builds to data manipulation and data visuals.',
     skills: [
-      'deck.gl',
-      'mapbox',
+      'Deck.gl',
+      'Mapbox',
       'React',
       'Gatsby',
       'Spring',
       'Thymeleaf',
-      'HTML5/CSS3/SASS/PostCSS/Webpack',
-      'vanilla javascript/ ES6',
+      'HTML5',
+      'CSS3',
+      'SASS',
+      'PostCSS',
+      'Webpack',
+      'JavaScript',
       'Java',
       'Animations',
-      'Responsive design and implementation',
+      'Responsive design',
       'Bulma',
-      'tailwind',
-      'bootstrap',
+      'Tailwind',
+      'Bootstrap',
       'UX/UI design',
-      'framer',
-      'sketch',
+      'Framer',
+      'Sketch',
     ],
     links: {
       github: 'https://github.com/DaveMitten',
-      personal: 'davidjamesmitten.com',
+      personal: 'https://davidjamesmitten.com',
     },
   },
   {
@@ -118,16 +152,19 @@ export const workExperience = [
   {
     title: 'React Developer',
     company: 'Currikula',
+    employmentType: 'Contract',
     startDate: 'Nov 2018',
     endDate: 'Mar 2019',
     duration: '5 mos',
     location: 'London, United Kingdom',
     description:
       '- Building version 2.0 with create react app from the ground up.\n- Using antd as a UI library for quick, efficient build.\n- Using NPM and yarn for local development.\n- Working with modern React techniques and ES6.\n- Designing and planning architecture and code base design.\n- Assisted in schema database designs.',
+    skills: ['React', 'antd', 'NPM', 'Yarn', 'ES6', 'JavaScript', 'HTML5', 'CSS3'],
   },
   {
     title: 'Contract Developer',
     company: 'Tails.com',
+    employmentType: 'Contract',
     startDate: 'Oct 2018',
     endDate: 'Jan 2019',
     duration: '4 mos',
@@ -138,6 +175,7 @@ export const workExperience = [
   {
     title: 'Junior Full Stack Developer',
     company: 'Honest Brew',
+    employmentType: 'Full-time',
     startDate: 'Aug 2017',
     endDate: 'Oct 2018',
     duration: '1 yr 3 mos',
@@ -148,15 +186,18 @@ export const workExperience = [
   {
     title: 'Code instructor',
     company: "ESCEN - Ecole Supérieure de Commerce et d'Economie Numérique",
+    employmentType: 'Contract',
     startDate: 'Sep 2018',
     endDate: 'Sep 2018',
     duration: '1 mo',
+    location: 'London, United Kingdom',
     description:
       '- Taught and wrote a 2 days introductory course into Bootstrap 4\n- Helped students with demo projects using HTML5, Bootstrap in JSFiddle\n- Marked students work and gave feedback to help them improve',
   },
   {
     title: 'Code Workshop Instructor',
     company: 'National Film and Television School',
+    employmentType: 'Contract',
     startDate: 'Jul 2018',
     endDate: 'Jul 2018',
     duration: '1 mo',
@@ -167,6 +208,7 @@ export const workExperience = [
   {
     title: 'Junior Web Developer',
     company: 'General Assembly',
+    employmentType: 'Full-time',
     startDate: 'Mar 2017',
     endDate: 'Jun 2017',
     duration: '4 mos',

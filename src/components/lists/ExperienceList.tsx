@@ -1,11 +1,23 @@
 'use client'
 import React, { useState } from 'react'
-import { Card, CardContent } from '../ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { workExperience as experience } from '../../../data/WorkData'
 import { ChevronRight } from 'lucide-react'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import MarkdownRenderer from '@/components/payload/markdown/MarkdownRenderer'
 
-const WorkExperience = ({ data, limit }: { data: typeof experience; limit: number }) => {
+export const WorkExperience = ({
+  data,
+  limit,
+  full,
+  cv,
+}: {
+  data: typeof experience
+  limit: number
+  full?: boolean
+  cv?: boolean
+}) => {
   if (!data) return null
   return data?.slice(0, limit).map((work) => {
     const {
@@ -19,46 +31,45 @@ const WorkExperience = ({ data, limit }: { data: typeof experience; limit: numbe
       description,
       skills,
     } = work
-
     return (
-      <Card key={work.company} className="border-transparent transition-colors duration-300">
+      <Card
+        key={work.company}
+        className="bg-gray-800 border-transparent transition-colors duration-300"
+      >
         <CardContent>
           <div className="rounded-lg ">
-            <h3 className="text-2xl font-semibold text-para mb-2">{title}</h3>
+            <h3 className=" text-2xl font-semibold text-[#d9dada] mb-2">{title}</h3>
             <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-sm font-bold pr-1">Company: </h4>
-              <span className="text-para">{company}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Company: </h4>
+              <span className="text-[#d9dada]">{company}</span>
             </div>
             <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-sm font-bold pr-1">Employment Type: </h4>
-              <span className="text-para">{employmentType}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Employment Type: </h4>
+              <span className="text-[#d9dada]">{employmentType}</span>
             </div>
             <div className="flex items-center text-sm mb-1">
-              <h4 className="text-sm font-bold pr-1">Dates: </h4>
-              <span className="text-para">{startDate}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Dates: </h4>
+              <span className="text-[#d9dada]">{startDate}</span>
               <ChevronRight className="w-4 h-4 mx-1" />
-              <span className="text-para">{endDate}</span>
+              <span className="text-[#d9dada]">{endDate}</span>
             </div>
             <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-sm font-bold pr-1">Duration: </h4>
-              <span className="text-para">{duration}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Duration: </h4>
+              <span className="text-[#d9dada]">{duration}</span>
             </div>
             <div className="text-sm mb-3 flex flex-row items-center">
-              <h4 className="text-sm font-bold pr-1">Location: </h4>
-              <span className="text-para">{location}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Location: </h4>
+              <span className="text-[#d9dada]">{location}</span>
             </div>
-            {/* {description && <p className="text-sm mb-3 text-wrap">{description}</p>} */}
+            {description && full && <MarkdownRenderer content={description} />}
             {skills && (
               <div className="pt-4">
-                <h4 className="text-sm font-bold mb-1">Skills:</h4>
-                <div className="flex flex-wrap">
+                <h4 className="text-[#2DD4BF] text-sm font-bold mb-1">Skills:</h4>
+                <div className="flex flex-wrap gap-2">
                   {skills?.map((skill, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-700 text-teal-400 rounded-full px-3 py-1 text-xs mr-2 mb-2"
-                    >
+                    <Badge key={skill} variant="secondary" className="bg-gray-700 text-[#2DD4BF]">
                       {skill}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
               </div>
@@ -88,7 +99,7 @@ const ExperienceList = () => {
   return (
     <section className="mx-auto min-w-[350px] max-w-screen-md">
       <h2 className="mb-8 text-center transition-colors duration-300">Most Recent Roles</h2>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-2">
         {WorkExperience({ data: experience, limit })}
         <div className="flex justify-center gap-4">
           <Button
