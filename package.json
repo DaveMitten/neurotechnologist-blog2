@@ -44,13 +44,21 @@
     "react-markdown": "^9.0.1",
     "react-remark": "^2.1.0",
     "react-syntax-highlighter": "^15.5.0",
+    "rehype-sanitize": "^6.0.0",
+    "rehype-stringify": "^10.0.1",
     "remark-code-screenshot": "^1.0.0",
+    "remark-gfm": "^4.0.0",
+    "remark-lint-list-item-bullet-indent": "^5.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-react": "^9.0.1",
+    "remark-rehype": "^11.1.1",
     "sharp": "0.32.6",
     "showdown": "^2.1.0",
     "showdown-highlight": "^3.1.0",
     "swr": "^2.2.5",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",

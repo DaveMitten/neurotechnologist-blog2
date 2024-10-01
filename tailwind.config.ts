@@ -18,6 +18,7 @@ const config: Config = {
         header: '#2DD4BF',
         para: '#d9dada',
         highlight: '#da5d54',
+        // card: '#18181b',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
