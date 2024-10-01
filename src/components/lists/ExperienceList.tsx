@@ -11,10 +11,12 @@ export const WorkExperience = ({
   data,
   limit,
   full,
+  cv,
 }: {
   data: typeof experience
   limit: number
   full?: boolean
+  cv?: boolean
 }) => {
   if (!data) return null
   return data?.slice(0, limit).map((work) => {
@@ -29,7 +31,6 @@ export const WorkExperience = ({
       description,
       skills,
     } = work
-    console.log('description, full', description, full)
     return (
       <Card
         key={work.company}
@@ -37,36 +38,36 @@ export const WorkExperience = ({
       >
         <CardContent>
           <div className="rounded-lg ">
-            <h3 className="text-2xl font-semibold text-para mb-2">{title}</h3>
+            <h3 className=" text-2xl font-semibold text-[#d9dada] mb-2">{title}</h3>
             <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-sm font-bold pr-1">Company: </h4>
-              <span className="text-para">{company}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Company: </h4>
+              <span className="text-[#d9dada]">{company}</span>
             </div>
             <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-sm font-bold pr-1">Employment Type: </h4>
-              <span className="text-para">{employmentType}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Employment Type: </h4>
+              <span className="text-[#d9dada]">{employmentType}</span>
             </div>
             <div className="flex items-center text-sm mb-1">
-              <h4 className="text-sm font-bold pr-1">Dates: </h4>
-              <span className="text-para">{startDate}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Dates: </h4>
+              <span className="text-[#d9dada]">{startDate}</span>
               <ChevronRight className="w-4 h-4 mx-1" />
-              <span className="text-para">{endDate}</span>
+              <span className="text-[#d9dada]">{endDate}</span>
             </div>
             <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-sm font-bold pr-1">Duration: </h4>
-              <span className="text-para">{duration}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Duration: </h4>
+              <span className="text-[#d9dada]">{duration}</span>
             </div>
             <div className="text-sm mb-3 flex flex-row items-center">
-              <h4 className="text-sm font-bold pr-1">Location: </h4>
-              <span className="text-para">{location}</span>
+              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Location: </h4>
+              <span className="text-[#d9dada]">{location}</span>
             </div>
             {description && full && <MarkdownRenderer content={description} />}
             {skills && (
               <div className="pt-4">
-                <h4 className="text-sm font-bold mb-1">Skills:</h4>
+                <h4 className="text-[#2DD4BF] text-sm font-bold mb-1">Skills:</h4>
                 <div className="flex flex-wrap gap-2">
                   {skills?.map((skill, index) => (
-                    <Badge key={skill} variant="secondary" className="bg-gray-700 text-header">
+                    <Badge key={skill} variant="secondary" className="bg-gray-700 text-[#2DD4BF]">
                       {skill}
                     </Badge>
                   ))}

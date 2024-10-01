@@ -4,36 +4,63 @@ import { WorkExperience } from '@/components/lists/ExperienceList'
 import { workExperience as experience } from '../../../../data/WorkData'
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
 import { Card, CardContent } from '../../../components/ui/card'
-export default function CV() {
+import DownloadTo from '../../../components/composite/DownloadTo'
+import { useState } from 'react'
+import { PayloadInput } from '../../actions/tailwindstream'
+import { renderToString } from 'react-dom/server'
+export default function CVWrapper() {
+  const cvHtml = renderToString(
+    <div className="bg-gray-900 w-full text-left">
+      <span className="text-[#d9dada] text-sm italic ml-2">
+        This CV was generated from a React/Typescript tsx component.
+      </span>
+      <CV />
+    </div>,
+  )
+
+  const [payload, setPayload] = useState<PayloadInput>({
+    html: cvHtml,
+    output: 'pdf',
+  })
   return (
-    <div className="max-w-screen-md mx-auto bg-gray-900 text-paragraph p-8 space-y-8">
+    <>
+      <DownloadTo payload={payload} setPayload={setPayload} />
+      <CV />
+    </>
+  )
+}
+
+// const colors = { main: '#201915', header: '#2DD4BF', para: '#d9dada', highlight: '#da5d54' }
+function CV() {
+  return (
+    <div className="max-w-screen-md mx-auto bg-gray-900 text-[#d9dada]graph p-8 space-y-8">
       <header className="flex flex-row gap-2 justify-between">
         <div>
-          <h1>David James Mitten</h1>
-          <h4 className="text-para">Senior Fullstack Developer</h4>
+          <h1 className="text-4xl text-[#2DD4BF]">David James Mitten</h1>
+          <h4 className="text-xl text-[#d9dada]">Senior Fullstack Developer</h4>
         </div>
         <div>
-          <a href="mailto:david@mitten.dev">
-            <p className="flex flex-row gap-2">
-              <Mail className="w-4 h-4 text-highlight" />
+          <a href="mailto:davidmitten88@gmail.com" target="_blank">
+            <p className="flex flex-row gap-2 text-[#d9dada]">
+              <Mail className="w-4 h-4 text-[#da5d54]" />
               <span>davidmitten88@gmail.com</span>
             </p>
           </a>
-          <a href="https://github.com/davidmitten88">
-            <p className="flex flex-row gap-2">
-              <Github className="w-4 h-4 text-highlight" />
+          <a href="https://github.com/DaveMitten" target="_blank">
+            <p className="flex flex-row gap-2 text-[#d9dada]">
+              <Github className="w-4 h-4 text-[#da5d54]" />
               <span>DaveMitten</span>
             </p>
           </a>
-          <a href="https://www.linkedin.com/in/davidmitten88/">
-            <p className="flex flex-row gap-2">
-              <Linkedin className="w-4 h-4 text-highlight" />
-              <span>davidmitten88</span>
+          <a href="https://www.linkedin.com/in/davidjamesmitten/" target="_blank">
+            <p className="flex flex-row gap-2 text-[#d9dada]">
+              <Linkedin className="w-4 h-4 text-[#da5d54]" />
+              <span>davidjamesmitten</span>
             </p>
           </a>
-          <a href="https://www.linkedin.com/in/davidmitten88/">
-            <p className="flex flex-row gap-2">
-              <Twitter className="w-4 h-4 text-highlight" />
+          <a href="https://x.com/DavidJamesMitt1" target="_blank">
+            <p className="flex flex-row gap-2 text-[#d9dada]">
+              <Twitter className="w-4 h-4 text-[#da5d54]" />
               <span>@DavidJamesMitt1</span>
             </p>
           </a>
@@ -45,19 +72,13 @@ export default function CV() {
             <CardContent>
               <div className="rounded-lg">
                 <div className="text-sm mb-1 flex flex-col  space-y-2">
-                  <h4>Qualifications: </h4>
+                  <h4 className="text-[#2DD4BF] text-xl font-semibold">Qualifications: </h4>
                   <div className="flex flex-wrap gap-2">
-                    {/* <ul className="text-para list-inside">
-                    <li className="list-disc ">BA (Hons) Creative Music Technology</li>
-                    <li className="list-disc ">
-                      General Assembly Web Development Immersive Graduate
-                    </li>
-                  </ul> */}
                     {[
                       'BA (Hons) Creative Music Technology',
                       'General Assembly Web Development Immersive Graduate',
                     ].map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-gray-700 text-para">
+                      <Badge key={skill} variant="secondary" className="bg-gray-700 text-[#d9dada]">
                         {skill}
                       </Badge>
                     ))}
@@ -70,13 +91,10 @@ export default function CV() {
             <CardContent>
               <div className="rounded-lg">
                 <div className="text-sm mb-1 flex flex-col  space-y-2">
-                  <h4>Certifications: </h4>
-                  {/* <ul className="text-para list-inside">
-                    <li className="list-disc ">Udemy Academy: React Front To Back</li>
-                  </ul> */}
+                  <h4 className="text-[#2DD4BF] text-xl font-semibold">Certifications: </h4>
                   <div className="flex flex-wrap gap-2">
                     {['Udemy Academy: React Front To Back'].map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-gray-700 text-para">
+                      <Badge key={skill} variant="secondary" className="bg-gray-700 text-[#d9dada]">
                         {skill}
                       </Badge>
                     ))}
@@ -89,7 +107,7 @@ export default function CV() {
             <CardContent>
               <div className="rounded-lg">
                 <div className="text-sm mb-1 flex flex-col space-y-2">
-                  <h4>Interests: </h4>
+                  <h4 className="text-[#2DD4BF] text-xl font-semibold">Interests: </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
                       'Music Production',
@@ -111,7 +129,7 @@ export default function CV() {
                       'Learning',
                       'Gardening',
                     ].map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-gray-700 text-para">
+                      <Badge key={skill} variant="secondary" className="bg-gray-700 text-[#d9dada]">
                         {skill}
                       </Badge>
                     ))}
@@ -124,7 +142,7 @@ export default function CV() {
             <CardContent>
               <div className="rounded-lg">
                 <div className="text-sm mb-1 flex flex-col space-y-2">
-                  <h4>Conceptual skills: </h4>
+                  <h4 className="text-[#2DD4BF] text-xl font-semibold">Conceptual skills: </h4>
                   <div className="flex flex-col  gap-2">
                     {[
                       'Fullstack Development',
@@ -154,7 +172,7 @@ export default function CV() {
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="max-w-fit bg-gray-700 text-para"
+                        className="max-w-fit bg-gray-700 text-[#d9dada]"
                       >
                         {skill}
                       </Badge>
@@ -168,7 +186,7 @@ export default function CV() {
             <CardContent>
               <div className="rounded-lg">
                 <div className="text-sm mb-1 flex flex-col space-y-2">
-                  <h4>Current Learning: </h4>
+                  <h4 className="text-[#2DD4BF] text-xl font-semibold">Current Learning: </h4>
                   <div className="flex flex-col  gap-2">
                     {[
                       'Payload CMS',
@@ -188,7 +206,7 @@ export default function CV() {
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="max-w-fit bg-gray-700 text-para"
+                        className="max-w-fit bg-gray-700 !text-[#d9dada]"
                       >
                         {skill}
                       </Badge>
@@ -201,8 +219,8 @@ export default function CV() {
         </div>
         <div className="col-span-4 space-y-4">
           <section>
-            <h2 className="mb-4">Professional Summary</h2>
-            <p>
+            <h2 className="text-2xl font-semibold text-[#2DD4BF] mb-4">Professional Summary</h2>
+            <p className="text-[#d9dada]">
               Experienced fullstack developer with a passion for transforming ideas into robust,
               scalable solutions. Proficient in modern web technologies and committed to creating
               efficient, user-friendly applications.
@@ -210,7 +228,7 @@ export default function CV() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-teal-400 mb-4">Current Tech Stack</h2>
+            <h2 className="text-2xl font-semibold text-[#2DD4BF] mb-4">Current Tech Stack</h2>
             <div className="flex flex-wrap gap-2">
               {[
                 'React',
@@ -234,7 +252,7 @@ export default function CV() {
                 'HTML',
                 'CSS',
               ].map((tech) => (
-                <Badge key={tech} variant="secondary" className="bg-gray-700 text-header">
+                <Badge key={tech} variant="secondary" className="bg-gray-700 text-[#2DD4BF]">
                   {tech}
                 </Badge>
               ))}
@@ -242,8 +260,8 @@ export default function CV() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-semibold text-teal-400">Professional Experience</h2>
-            {WorkExperience({ data: experience, limit: 3, full: true })}
+            <h2 className="text-2xl font-semibold text-[#2DD4BF]">Professional Experience</h2>
+            {WorkExperience({ data: experience, limit: 3, full: true, cv: true })}
           </section>
         </div>
       </div>
