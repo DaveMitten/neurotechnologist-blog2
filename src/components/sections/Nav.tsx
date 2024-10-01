@@ -121,6 +121,7 @@ const Nav = () => {
   const navItems = [
     <X key="close" className="block md:hidden" onClick={() => setIsOpen(!isOpen)} />,
     'Home',
+    'CV',
     'Blog',
   ]
   return (
