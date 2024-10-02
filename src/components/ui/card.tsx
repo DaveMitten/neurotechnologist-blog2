@@ -11,7 +11,17 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ size = 'md', className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('p-6 border bg-card', size === 'lg' ? 'space-y-10' : 'space-y-4', className)}
+      className={cn(
+        'border bg-card',
+        size === 'lg'
+          ? 'space-y-10 p-6 '
+          : size === 'md'
+            ? 'space-y-4 p-6 '
+            : size === 'sm'
+              ? 'space-y-2 p-4'
+              : '',
+        className,
+      )}
       {...props}
     />
   ),

@@ -6,6 +6,7 @@ import { ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import MarkdownRenderer from '@/components/payload/markdown/MarkdownRenderer'
+import clsx from 'clsx'
 
 export const WorkExperience = ({
   data,
@@ -17,6 +18,7 @@ export const WorkExperience = ({
   limit: number
   full?: boolean
   cv?: boolean
+  className?: string
 }) => {
   if (!data) return null
   return data?.slice(0, limit).map((work) => {
@@ -34,40 +36,67 @@ export const WorkExperience = ({
     return (
       <Card
         key={work.company}
-        className="bg-gray-800 border-transparent transition-colors duration-300"
+        size={cv ? 'sm' : 'md'}
+        className={clsx(
+          cv ? 'bg-white ' : 'bg-gray-800 border-transparent',
+          'transition-colors duration-300',
+        )}
       >
         <CardContent>
-          <div className="rounded-lg ">
-            <h3 className=" text-2xl font-semibold text-[#d9dada] mb-2">{title}</h3>
-            <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Company: </h4>
-              <span className="text-[#d9dada]">{company}</span>
+          <div className={clsx(cv ? 'rounded-lg border-gray-500 border-1' : 'rounded-lg')}>
+            <h3
+              className={clsx(
+                cv ? 'text-gray-500  text-lg' : 'text-[#d9dada] text-2xl',
+                ' font-semibold mb-2',
+              )}
+            >
+              {title}
+            </h3>
+            <div className={clsx(cv ? 'text-xs flex flex-row' : 'text-sm', 'mb-1')}>
+              <h4 className={clsx(cv ? 'text-xs' : 'text-sm', 'text-[#2DD4BF] font-bold pr-1')}>
+                Company:{' '}
+              </h4>
+              <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>{company}</span>
             </div>
             <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Employment Type: </h4>
-              <span className="text-[#d9dada]">{employmentType}</span>
+              <h4 className={clsx(cv ? 'text-xs' : 'text-sm', 'text-[#2DD4BF] font-bold pr-1')}>
+                Employment Type:
+              </h4>
+              <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>
+                {employmentType}
+              </span>
             </div>
             <div className="flex items-center text-sm mb-1">
-              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Dates: </h4>
-              <span className="text-[#d9dada]">{startDate}</span>
+              <h4 className={clsx(cv ? 'text-xs' : 'text-sm', 'text-[#2DD4BF] font-bold pr-1')}>
+                Dates:
+              </h4>
+              <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>{startDate}</span>
               <ChevronRight className="w-4 h-4 mx-1" />
-              <span className="text-[#d9dada]">{endDate}</span>
+              <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>{endDate}</span>
             </div>
-            <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Duration: </h4>
-              <span className="text-[#d9dada]">{duration}</span>
+            <div className={clsx(cv ? 'text-xs' : 'text-sm', 'mb-1 flex flex-row items-center')}>
+              <h4 className={clsx(cv ? 'text-xs' : 'text-sm', 'text-[#2DD4BF] font-bold pr-1')}>
+                Duration:
+              </h4>
+              <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>{duration}</span>
             </div>
-            <div className="text-sm mb-3 flex flex-row items-center">
-              <h4 className="text-[#2DD4BF] text-sm font-bold pr-1">Location: </h4>
-              <span className="text-[#d9dada]">{location}</span>
+            <div className={clsx(cv ? 'text-xs' : 'text-sm', 'mb-3 flex flex-row items-center')}>
+              <h4 className={clsx(cv ? 'text-xs' : 'text-sm', 'text-[#2DD4BF] font-bold pr-1')}>
+                Location:
+              </h4>
+              <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>{location}</span>
             </div>
-            {description && full && <MarkdownRenderer content={description} />}
+            {description && full && <MarkdownRenderer cv={true} content={description} />}
             {skills && (
               <div className="pt-4">
                 <h4 className="text-[#2DD4BF] text-sm font-bold mb-1">Skills:</h4>
                 <div className="flex flex-wrap gap-2">
                   {skills?.map((skill, index) => (
-                    <Badge key={skill} variant="secondary" className="bg-gray-700 text-[#2DD4BF]">
+                    <Badge
+                      key={skill}
+                      variant={cv ? 'outline' : 'secondary'}
+                      className={clsx(cv ? 'text-xs bg-white' : 'bg-gray-700', 'text-[#2DD4BF]')}
+                    >
                       {skill}
                     </Badge>
                   ))}

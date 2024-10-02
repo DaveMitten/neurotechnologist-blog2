@@ -84,7 +84,7 @@ The role required strong technical expertise, leadership skills, and the ability
     company: 'Self employed',
     employmentType: 'Contract',
     startDate: 'Sep 2019',
-    endDate: 'Sep 2024',
+    endDate: 'Present',
     duration: '5 yrs 1 mo',
     location: 'Remote',
     description:

@@ -8,8 +8,9 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
+import clsx from 'clsx'
 
-const MarkdownRenderer = ({ content }: { content: string }) => {
+const MarkdownRenderer = ({ content, cv = false }: { content: string; cv?: boolean }) => {
   if (!content) return null
 
   return (
@@ -20,17 +21,36 @@ const MarkdownRenderer = ({ content }: { content: string }) => {
         components={{
           li: (props: any) => {
             return (
-              <li className="text-[#d9dada] list-item list-inside list-disc">{props.children}</li>
+              <li
+                className={clsx(
+                  cv ? 'text-xs text-gray-500' : 'text-[#d9dada]',
+                  'list-item list-inside list-disc',
+                )}
+              >
+                {props.children}
+              </li>
             )
           },
           ul: (props: any) => {
-            return <ul className="my-2 text-[#d9dada]">{props.children}</ul>
+            return (
+              <ul className={clsx(cv ? 'text-xs text-gray-500' : 'text-[#d9dada]', 'my-2')}>
+                {props.children}
+              </ul>
+            )
           },
           ol: (props: any) => {
-            return <ol className="my-2 text-[#d9dada]">{props.children}</ol>
+            return (
+              <ol className={clsx(cv ? 'text-xs text-gray-500' : 'text-[#d9dada]', 'my-2')}>
+                {props.children}
+              </ol>
+            )
           },
           p: (props: any) => {
-            return <p className="text-[#d9dada]">{props.children}</p>
+            return (
+              <p className={clsx(cv ? 'text-xs text-gray-500' : 'text-[#d9dada]')}>
+                {props.children}
+              </p>
+            )
           },
           pre: (props: any) => {
             return (

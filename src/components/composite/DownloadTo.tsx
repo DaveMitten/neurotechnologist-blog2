@@ -34,10 +34,12 @@ export default function DownloadTo({
   const btnText = isLoading ? 'Downloading...' : `Download .${payload.output}`
 
   return (
-    <div className="bg-gray-800 text-para max-w-fit p-4 space-y-4  rounded-lg">
+    <div className="bg-white max-w-fit p-4 space-y-4 rounded-lg flex flex-col items-center">
       {/* <SelectOutput onChange={setOutput} /> */}
-      <h4>Download my CV</h4>
-      <Button onClick={() => mutateAsync()}>{btnText}</Button>
+      <h4 className="text-lg font-bold ">Download my CV</h4>
+      <Button className="text-white" onClick={() => mutateAsync()}>
+        {btnText}
+      </Button>
       {error && <p style={{ textAlign: 'center' }}>{error}</p>}
     </div>
   )
