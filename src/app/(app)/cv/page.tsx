@@ -187,7 +187,7 @@ const currentTechStack = [
 ]
 
 // const colors = { main: '#201915', header: '#2DD4BF', para: '#d9dada', highlight: '#da5d54' }
-export function CV() {
+function CV() {
   return (
     <>
       <div className=" max-w-screen-md mx-auto bg-white p-8 space-y-6 ">
