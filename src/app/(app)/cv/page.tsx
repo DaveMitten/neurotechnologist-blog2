@@ -26,7 +26,14 @@ export default function CVWrapper() {
   return (
     <div className="bg-gray-900 w-full lg:pb-10 flex flex-col items-center justify-center p-4 space-y-4">
       <DownloadTo payload={payload} setPayload={setPayload} />
-      <CV />
+      <div className="text-center flex lg:hidden max-w-screen-md mx-auto bg-gray-900 text-[#d9dada] p-8 mb-10  flex-col items-center justify-center">
+        You are trying to view my CV which is optimised for print and desktop screens. Please
+        download it to view it.
+        <span className="text-sm mt-6">Thank you.</span>
+      </div>
+      <div className="hidden lg:block">
+        <CV />
+      </div>
     </div>
   )
 }
@@ -183,12 +190,7 @@ const currentTechStack = [
 function CV() {
   return (
     <>
-      <div className="text-center lg:hidden max-w-screen-md mx-auto bg-gray-900 text-[#d9dada] p-8 mb-10 flex flex-col items-center justify-center">
-        You are trying to view my CV which is optimised for print and desktop screens. Please
-        download it to view it.
-        <span className="text-sm mt-6">Thank you.</span>
-      </div>
-      <div className="hidden lg:block max-w-screen-md mx-auto bg-white p-8 space-y-6 ">
+      <div className=" max-w-screen-md mx-auto bg-white p-8 space-y-6 ">
         <header className="flex flex-row gap-2 justify-between">
           <div>
             <h1 className="text-4xl text-[#2DD4BF]">David James Mitten</h1>
