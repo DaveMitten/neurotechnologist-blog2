@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useCallback, useEffect } from 'react'
-
+import React from 'react'
+import { useForm } from 'react-hook-form'
 import { PayloadInput, useDownload } from '../../app/actions/tailwindstream'
 import { Button } from '../ui/button'
 
@@ -13,6 +13,7 @@ export default function DownloadTo({
   setPayload: (value: PayloadInput) => void
 }) {
   const { isLoading, error, mutateAsync } = useDownload(payload)
+  const { register, handleSubmit } = useForm()
 
   //   const setHtml = useCallback(
   //     (value: string) => {
@@ -31,13 +32,20 @@ export default function DownloadTo({
   //     }
   //   }, [payload])
 
+  const onSubmit = (data: any) => {
+    data.email
+
+    // mutateAsync()
+  }
+
   const btnText = isLoading ? 'Downloading...' : `Download .${payload.output}`
 
   return (
     <div className="bg-white max-w-fit p-4 space-y-4 rounded-lg flex flex-col items-center">
       {/* <SelectOutput onChange={setOutput} /> */}
       <h4 className="text-lg font-bold ">Download my CV</h4>
-      <Button className="text-white" onClick={() => mutateAsync()}>
+      <input type="email" {...register('email')} />
+      <Button className="text-white" onClick={() => handleSubmit(onSubmit)}>
         {btnText}
       </Button>
       {error && <p style={{ textAlign: 'center' }}>{error}</p>}
