@@ -8,17 +8,17 @@ import DownloadTo from '../../../components/composite/DownloadTo'
 import { useState } from 'react'
 import { PayloadInput } from '../../actions/tailwindstream'
 import { renderToString } from 'react-dom/server'
+
 export default function CVWrapper() {
   const cvHtml = renderToString(
-    <div className="bg-gray-900 w-full text-left">
-      <span className="text-[#d9dada] text-sm italic ml-2">
+    <div className="bg-white w-full text-left">
+      <div className="text-gray-500 text-sm italic ml-2 p-4">
         This CV was generated on the spot from the underlying React components meaning its always up
         to date. Thank you for taking interest in my site and my cv.
-      </span>
+      </div>
       <CV />
     </div>,
   )
-
   const [payload, setPayload] = useState<PayloadInput>({
     html: cvHtml,
     output: 'pdf',
@@ -26,7 +26,14 @@ export default function CVWrapper() {
   return (
     <div className="bg-gray-900 w-full lg:pb-10 flex flex-col items-center justify-center p-4 space-y-4">
       <DownloadTo payload={payload} setPayload={setPayload} />
-      <CV />
+      <div className="text-center flex lg:hidden max-w-screen-md mx-auto bg-white text-gray-500 p-8 mb-10  flex-col items-center justify-center">
+        You are trying to view my CV which is optimised for print and desktop screens. Please
+        download it to view it.
+        <span className="text-sm mt-6">Thank you.</span>
+      </div>
+      <div className="hidden lg:block">
+        <CV />
+      </div>
     </div>
   )
 }
@@ -183,12 +190,7 @@ const currentTechStack = [
 function CV() {
   return (
     <>
-      <div className="text-center lg:hidden max-w-screen-md mx-auto bg-gray-900 text-[#d9dada] p-8 mb-10 flex flex-col items-center justify-center">
-        You are trying to view my CV which is optimised for print and desktop screens. Please
-        download it to view it.
-        <span className="text-sm mt-6">Thank you.</span>
-      </div>
-      <div className="hidden lg:block max-w-screen-md mx-auto bg-white p-8 space-y-6 ">
+      <div className=" max-w-screen-md mx-auto bg-white p-8 space-y-6 ">
         <header className="flex flex-row gap-2 justify-between">
           <div>
             <h1 className="text-4xl text-[#2DD4BF]">David James Mitten</h1>
