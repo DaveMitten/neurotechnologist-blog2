@@ -1,13 +1,15 @@
 'use client'
 import { Badge } from '@/components/ui/badge'
-import { WorkExperience } from '@/components/lists/ExperienceList'
-import { workExperience as experience } from '../../../../data/WorkData'
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
-import { Card, CardContent } from '../../../components/ui/card'
 import DownloadTo from '../../../components/composite/DownloadTo'
 import { useState } from 'react'
-import { PayloadInput } from '../../actions/tailwindstream'
+
 import { renderToString } from 'react-dom/server'
+import { WorkExperience } from '@/components/lists/ExperienceList'
+import { Card, CardContent } from '@/components/ui/card'
+import { workExperience as experience } from '../../../../data/WorkData'
+import { PayloadInput } from '../../actions/tailwindstream'
+import SignUp from '@/components/forms/signup'
 
 export default function CVWrapper() {
   const cvHtml = renderToString(
@@ -25,7 +27,9 @@ export default function CVWrapper() {
   })
   return (
     <div className="bg-gray-900 w-full lg:pb-10 flex flex-col items-center justify-center p-4 space-y-4">
-      <DownloadTo payload={payload} setPayload={setPayload} />
+      <SignUp>
+        <DownloadTo payload={payload} setPayload={setPayload} />
+      </SignUp>
       <div className="text-center flex lg:hidden max-w-screen-md mx-auto bg-white text-gray-500 p-8 mb-10  flex-col items-center justify-center">
         You are trying to view my CV which is optimised for print and desktop screens. Please
         download it to view it.
