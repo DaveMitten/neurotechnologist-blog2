@@ -1,19 +1,4 @@
-type WorkExperience = {
-  title: string
-  company: string
-  employmentType: string
-  startDate: string
-  endDate: string
-  duration: string
-  location: string
-  description?: string
-  skills?: string[]
-  links?: {
-    github?: string
-    personal?: string
-  }
-  courses?: string[]
-}
+import { WorkExperience } from '@/types/general'
 export const workExperience: WorkExperience[] = [
   {
     title: 'Software Engineer',

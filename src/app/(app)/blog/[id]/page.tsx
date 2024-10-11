@@ -2,7 +2,7 @@ import { Clock9 } from 'lucide-react'
 import Post from '../../../../components/composite/PostPage'
 import { getPostBySlug } from '../../../actions/blog'
 
-export default async function PostWrapper({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
   const { id: slug } = params
   const post = await getPostBySlug(slug)
   if (!post) {

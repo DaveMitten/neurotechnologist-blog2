@@ -1,7 +1,7 @@
 'use client'
 import { Badge } from '@/components/ui/badge'
 import { WorkExperience } from '@/components/lists/ExperienceList'
-import { workExperience as experience } from '../../../../data/WorkData'
+import { workExperience as experience } from '../../../data/WorkData'
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
 import { Card, CardContent } from '../../../components/ui/card'
 import DownloadTo from '../../../components/composite/DownloadTo'
