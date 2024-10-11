@@ -1,17 +1,19 @@
 'use client'
 
 import React from 'react'
-import { ColorScheme } from '../../types/general'
 import { useState } from 'react'
 import clsx from 'clsx'
 import { X } from 'lucide-react'
+
+type NavItem = { name?: string; href?: string; node?: React.ReactNode }
+type NavItems = Array<NavItem>
 
 const MobileMenu = ({
   navItems,
   setIsOpen,
   isOpen,
 }: {
-  navItems: string[] | React.ReactNode[]
+  navItems: NavItems
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
   isOpen: boolean
 }) => {
@@ -42,16 +44,13 @@ const MobileMenu = ({
           isOpen ? 'fixed' : 'hidden',
         )}
       >
+        <li>
+          <X key="close" className="block md:hidden" onClick={() => setIsOpen(!isOpen)} />
+        </li>
         {navItems.map((item) => {
-          let href = ''
-          if (typeof item === 'string') {
-            href = `/${item?.toLowerCase()}`
-          }
-          href.includes('Home') ? (href = '/') : href
-
           return (
-            <li key={typeof item === 'string' ? item : 'close'} className="group relative">
-              <a href={href}>{item}</a>
+            <li key={item?.href ? item?.href : 'close'} className="group relative">
+              <a href={item?.href}>{item?.name}</a>
 
               <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 group-hover:transition-all"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 group-hover:transition-all"></span>
@@ -66,7 +65,7 @@ const MobileMenu = ({
 
 //
 
-const DesktopMenu = ({ navItems }: { navItems: string[] | React.ReactNode[] }) => {
+const DesktopMenu = ({ navItems }: { navItems: NavItems }) => {
   return (
     <nav className="px-4 sm:px-0 py-6 hidden md:flex justify-between items-center">
       <div className="flex items-center space-x-2">
@@ -95,15 +94,10 @@ const DesktopMenu = ({ navItems }: { navItems: string[] | React.ReactNode[] }) =
 
       <ul className="hidden md:flex space-x-4">
         {navItems.map((item) => {
-          if (typeof item !== 'string') {
-            return
-          }
-          const href = item === 'Home' ? '/' : `/${item.toLowerCase()}`
-
           return (
-            <li className="group relative" key={item}>
-              <a href={href} className=" text-para">
-                {item}
+            <li className="group relative" key={item?.name}>
+              <a href={item?.href} className=" text-para">
+                {item?.name}
               </a>
               <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 group-hover:transition-all"></span>
               <span className="absolute -bottom-1 right-1/2 w-0 h-0.5 bg-highlight group-hover:w-1/2 group-hover:transition-all"></span>
@@ -117,11 +111,11 @@ const DesktopMenu = ({ navItems }: { navItems: string[] | React.ReactNode[] }) =
 // absolute start-2/3 top-1/3
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const navItems = [
-    <X key="close" className="block md:hidden" onClick={() => setIsOpen(!isOpen)} />,
-    'Home',
-    'CV',
-    'Blog',
+  const navItems: NavItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Key Roles', href: '/key-roles' },
+    { name: 'CV', href: '/cv' },
+    { name: 'Blog', href: '/blog' },
   ]
   return (
     <>

@@ -1,13 +1,14 @@
 'use client'
 import { Badge } from '@/components/ui/badge'
-import { WorkExperience } from '@/components/lists/ExperienceList'
-import { workExperience as experience } from '../../../../data/WorkData'
+
+import { workExperience as experience } from '../../../data/WorkData'
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
 import { Card, CardContent } from '../../../components/ui/card'
 import DownloadTo from '../../../components/composite/DownloadTo'
 import { useState } from 'react'
 import { PayloadInput } from '../../actions/tailwindstream'
 import { renderToString } from 'react-dom/server'
+import WorkExperience from '../../../components/cards/WorkexperienceCard'
 
 export default function CVWrapper() {
   const cvHtml = renderToString(

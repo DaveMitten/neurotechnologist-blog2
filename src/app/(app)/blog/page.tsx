@@ -8,7 +8,7 @@ function findMostRecentPost(posts: Post[]) {
     return new Date(mostRecent.createdAt) > new Date(current.createdAt) ? mostRecent : current
   })
 }
-export default async function Blog() {
+export default async function Page() {
   const postsCollection = await getPostsCollection()
   const tags = await getTags()
   if (
