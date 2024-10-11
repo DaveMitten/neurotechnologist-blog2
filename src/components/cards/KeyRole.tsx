@@ -44,15 +44,15 @@ const KeyRole = ({ role }: { role: KeyRoleType }) => {
       )}
     >
       <CardContent className="flex flex-col gap-4 space-y-2">
-        <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-4 ">
           <div>
             <h3 className={'text-[#d9dada] text-4xl font-semibold mb-2'}>{company}</h3>
             <h3 className={'text-[#d9dada] text-2xl font-semibold mb-2'}>{title}</h3>
           </div>
           {/* logo */}
-          <div className="relative w-[200px] h-[200px] col-span-2 justify-self-center">
+          <div className="mb-4 md:mb-0 relative w-[150px] h-[150px] md:w-[200px] md:h-[200px]">
             <Image src={onetribeLogo} alt={role.title} layout="fill" objectFit="contain" />
-          </div>{' '}
+          </div>
         </div>
         <div className="flex flex-col text-sm mb-1">
           <h4 className={'text-lg text-[#2DD4BF] font-bold pr-1'}>Duration:</h4>

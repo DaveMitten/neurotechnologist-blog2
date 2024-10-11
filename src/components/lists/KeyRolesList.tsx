@@ -27,14 +27,24 @@ const KeyRolesList = ({ roles }: KeyRolesListProps) => {
           <div className="flex flex-col gap-4 max-w-screen-md">
             {roles.map((role) => (
               <Card key={role.company}>
-                <div className="flex flex-col gap-2">
-                  <CardContent>
-                    <div className="grid grid-cols-5">
-                      <div className="flex flex-col gap-2 col-span-3">
-                        <h3>{role.company}</h3>
-                        <div>{role.overview}</div>
+                <CardContent className="flex flex-col gap-4 ">
+                  <div className="flex flex-col md:flex-row space-y-4 md:space-y-0">
+                    <div className="flex flex-col space-y-2 md:w-2/3 justify-center">
+                      <h3>{role.company}</h3>
+                      <div>{role.overview}</div>
+                      <div className="md:pt-2">
+                        <Button
+                          onClick={() => router.push(`/key-roles/${id}`)}
+                          variant="default"
+                          className="w-fit hidden md:block"
+                        >
+                          View Role
+                        </Button>
                       </div>
-                      <div className="relative w-[200px] h-[200px] col-span-2 justify-self-center">
+                    </div>
+                    {/* logo */}
+                    <div className="flex justify-center md:w-1/3 items-center">
+                      <div className="relative w-[150px] h-[150px]">
                         <Image
                           src={onetribeLogo}
                           alt={role.title}
@@ -43,11 +53,15 @@ const KeyRolesList = ({ roles }: KeyRolesListProps) => {
                         />
                       </div>
                     </div>
-                    <Button onClick={() => router.push(`/key-roles/${id}`)} variant="default">
-                      View Role
-                    </Button>
-                  </CardContent>
-                </div>
+                  </div>
+                  <Button
+                    onClick={() => router.push(`/key-roles/${id}`)}
+                    variant="default"
+                    className="w-full md:hidden block"
+                  >
+                    View Role
+                  </Button>
+                </CardContent>
               </Card>
             ))}
           </div>
