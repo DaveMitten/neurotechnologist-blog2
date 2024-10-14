@@ -1,19 +1,24 @@
 'use client'
+import { useRouter } from 'next/navigation'
 
+import LogoGrid from '@/components/grids/LogoGrid'
 import { Card, CardContent, CardTitle } from '@/components/ui/card'
-import Hero from '../../components/sections/Hero'
-import LogoGrid from '../../components/grids/LogoGrid'
-import ExperienceList from '../../components/lists/ExperienceList'
-import SVGContainer from '../../components/elements/SVGContainer'
-import JavascriptSVG from '../../components/logos/JavascriptSVG'
-import NextjsSVG from '../../components/logos/NextjsSVG'
-import PayloadSVG from '../../components/logos/PayloadcmsSVG'
-import ReactSVG from '../../components/logos/ReactSVG'
-import TailwindSVG from '../../components/logos/TailwindSVG'
-import TypescriptSVG from '../../components/logos/TypescriptSVG'
-import VercelSVG from '../../components/logos/VercelSVG'
+import Hero from '@/components/sections/Hero'
+import ExperienceList from '@/components/lists/ExperienceList'
+
+import SVGContainer from '@/components/elements/SVGContainer'
+import JavascriptSVG from '@/components/logos/JavascriptSVG'
+import NextjsSVG from '@/components/logos/NextjsSVG'
+import PayloadSVG from '@/components/logos/PayloadcmsSVG'
+import ReactSVG from '@/components/logos/ReactSVG'
+import TailwindSVG from '@/components/logos/TailwindSVG'
+import TypescriptSVG from '@/components/logos/TypescriptSVG'
+import VercelSVG from '@/components/logos/VercelSVG'
+import JestSVG from '@/components/logos/JestSVG'
 
 export default function Page() {
+  const router = useRouter()
+
   const logos: { [key: string]: { svg: React.ReactNode; link: string } } = {
     react: { svg: <SVGContainer svg={ReactSVG} />, link: 'https://react.dev/' },
     javascript: {
@@ -26,6 +31,7 @@ export default function Page() {
       svg: <SVGContainer svg={TypescriptSVG} />,
       link: 'https://www.typescriptlang.org/',
     },
+    jest: { svg: <SVGContainer svg={JestSVG} />, link: 'https://jestjs.io/' },
     vercel: { svg: <SVGContainer svg={VercelSVG} />, link: 'https://vercel.com/' },
     payloadcms: { svg: <SVGContainer svg={PayloadSVG} />, link: 'https://payloadcms.com/' },
   }

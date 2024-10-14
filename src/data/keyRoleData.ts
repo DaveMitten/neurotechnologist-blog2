@@ -20,6 +20,7 @@ const keyRoles: KeyRole[] = [
       'Overcame complex challenges with simple, accurate solutions',
       'Ensured project delivery within specified timelines and budget',
       'Stayed current with industry trends and emerging technologies',
+      'Worked with the CTO to design and build a new products',
     ],
     technicalExpertise: [
       'JavaScript',
@@ -40,6 +41,11 @@ const keyRoles: KeyRole[] = [
       'React Email',
       'Postmark',
       'Stripo',
+      'Vercel',
+      'CI/CD',
+      'Jest',
+      'GCP',
+      'S3 Buckets',
     ],
     majorAchievements: [
       'Successfully migrated the database from Firebase to Xata, improving performance and scalability',

@@ -149,7 +149,7 @@ const leftSideCardDetails = [
       'Payload CMS',
       'Next.js 15',
       'React Native',
-      'Flutter',
+      'Jest',
       'General AI topics',
       'Python',
       'Cyber Security',
@@ -168,23 +168,27 @@ const currentTechStack = [
   'React',
   'Javascript',
   'Next.js',
+  'Jest',
+  'React native',
   'Tailwind CSS',
   'TypeScript',
   'Vercel',
   'Payload CMS',
+  'Contentful',
   'Stripe',
   'MongoDB',
+  'Mongoose',
   'Express',
   'Node',
   'Firebase',
   'Git',
   'GCP',
   'GitHub',
-  'Mongoose',
   'PostgreSQL',
   'Xata',
   'HTML',
   'CSS',
+  'Github CI/CD',
 ]
 
 // const colors = { main: '#201915', header: '#2DD4BF', para: '#d9dada', highlight: '#da5d54' }
@@ -242,7 +246,7 @@ function CV() {
 
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-[#2DD4BF]">Professional Experience</h2>
-              {WorkExperience({ data: experience, limit: 3, full: true, cv: true })}
+              {WorkExperience({ data: experience, limit: 100, full: true, cv: true })}
             </section>
           </div>
         </div>
