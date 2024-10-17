@@ -37,7 +37,7 @@ export default function DownloadTo({
     <div className="bg-white max-w-fit p-4 space-y-4 rounded-lg flex flex-col items-center">
       {/* <SelectOutput onChange={setOutput} /> */}
       <h4 className="text-lg font-bold ">Download my CV</h4>
-      <Button className="text-white" onClick={() => mutateAsync()}>
+      <Button disabled={isLoading} className="text-white" onClick={() => mutateAsync()}>
         {btnText}
       </Button>
       {error && <p style={{ textAlign: 'center' }}>{error}</p>}

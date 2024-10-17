@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "@atelier-disko/payload-lexical-react-renderer": "^1.0.4",
+    "@fileforge/client": "^0.1.18",
+    "@fileforge/react-print": "^0.1.150",
     "@payloadcms/db-mongodb": "3.0.0-canary.0374de4",
     "@payloadcms/next": "3.0.0-canary.0374de4",
     "@payloadcms/ui": "3.0.0-canary.0374de4",

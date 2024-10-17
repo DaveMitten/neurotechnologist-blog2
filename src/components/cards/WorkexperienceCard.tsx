@@ -42,7 +42,7 @@ export const WorkExperience = ({
           <div className={clsx(cv ? 'rounded-lg border-gray-500 border-1' : 'rounded-lg')}>
             <h3
               className={clsx(
-                cv ? 'text-gray-500  text-lg' : 'text-[#d9dada] text-2xl',
+                cv ? 'text-gray-500  text-base' : 'text-[#d9dada] text-2xl',
                 ' font-semibold mb-2',
               )}
             >

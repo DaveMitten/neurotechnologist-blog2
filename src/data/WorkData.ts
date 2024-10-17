@@ -8,20 +8,40 @@ export const workExperience: WorkExperience[] = [
     endDate: 'Sept 2024',
     duration: '3 yrs 11 mos',
     location: 'Remote',
-    description: `
-The role required strong technical expertise, leadership skills, and the ability to balance hands-on development with team management responsibilities.
+    description: `I led with the CTO in technical direction and implemented best practices for the One Tribe product.
+    As a team we developed fullstack applications using React, Next.js, and Node.js with TypeScript. I and a colleague
+    created a BigCommerce app and I implemented multi-platform webhook endpoints for event tracking. With the CTO we designed and developed milestone tracking and custom email systems. We utilized GCP/Firebase services for efficient data processing and storage. We implemented Stripe for payment processing and Contentful for content management. Contributed to API design, microservice design, frontend development, and backend services integration.`,
+    //     description: `
+    // The role required strong technical expertise, leadership skills, and the ability to balance hands-on development with team management responsibilities.
 
-- Collaborated with the CTO in overall technical direction of the One Tribe product
-- Collaborated with other developers in the team joining in with stand-ups and paired programming.
-- Wrote high quality code 
-- Implemented best practices for coding standards, testing, and deployment
-- Conducted regular code reviews, QA, and testing.
-- Assisted in designing and building UX flows, UI components, and layouts.
-- Overcame complex challenges with simple, accurate solutions.
-- Ensures project delivery within specified timelines and budget
-- Stayed current with industry trends and emerging technologies
-
-`,
+    // - Collaborated with the CTO in overall technical direction of the One Tribe product
+    // - Collaborated with other developers in the team joining in with stand-ups and paired programming
+    // - Implemented best practices for coding standards, testing, and deployment
+    // - Conducted regular code reviews, QA, and testing
+    // - Assisted in designing and building UX flows, UI components, and layouts
+    // - Overcame complex challenges with simple, accurate solutions
+    // - Ensures project delivery within specified timelines and budget
+    // - Stayed current with industry trends and emerging technologies
+    // - Built a next js app for BigCommerce using the BigCommerce API and had it listed in the BigCommerce app store
+    // - Created multiple different endpoints to track customer events with webhooks from BigCommerce, Shopify, Magento, WooCommerce and an standard endpoint to be implemented in custom flows.
+    // - Tracked and logged customer events in firestore/xata and stripe subscription products to periodically charge users for use.
+    // - Designed, developed and implemented custom emails (Postmark, Stripo, React email) resting on cron jobs to update users of their milestone events.
+    // - Designed, developed and implemented a milestone event tracking system to award users badges and achievements for their progress.
+    // - Utilized GCP services including Cloud Functions, Cloud Storage, Cloud IAM, Cloud logging and BigQuery for efficient data processing and storage.
+    // - Contributed to the development of fullstack applications using React and Next.js, ensuring seamless integration with backend services.
+    // - Developed and maintained backend services using Node.js and TypeScript, integrating with various data sources.
+    // - Designed and implemented RESTful APIs to support frontend applications and third-party integrations.
+    // - Utilized React and Next.js for frontend development, ensuring a responsive and dynamic user experience.
+    // - Migrated from CSS to Tailwind CSS for styling, ensuring a consistent and modern UI across the platform.
+    // - Implemented Stripe for payment processing, ensuring a secure and seamless payment experience for subscription creation and management, dynamic product creation, custom checkouts and dynamic service product pricing
+    // - Used Contentful for content management, ensuring a flexible and scalable content management system, primarily used for custom brand page override and generation.
+    // - Worked with Vercel for deployment, ensuring a fast and reliable deployment process with CI/CD in the build pipeline.
+    // - Created unit tests with Jest, ensuring a comprehensive and reliable testing strategy, wherever we had budget to do so.
+    // - Created GCP/Firebase services including Firebase/Cloud Functions, Firebase Auth, Realtime Database, Firestore, and BigQuery for efficient data processing and storage
+    // - Used CI/CD for deployment locally and in production, ensuring a fast and reliable deployment process.
+    // - Performed manual regular testing of APIs using Postman.
+    // - Created Testing collections in Postman.
+    // `,
     skills: [
       'JavaScript',
       'Web Engineering',
@@ -36,12 +56,20 @@ The role required strong technical expertise, leadership skills, and the ability
       'Git',
       'GitHub',
       'MongoDB',
-      'Stripe',
       'Contentful',
       'Vercel',
       'Jest',
       'CI/CD',
       'GCP',
+      'Firebase',
+      'BigQuery',
+      'Cloud Functions',
+      'Firestore',
+      'Realtime Database',
+      'Firebase Auth',
+      'NextAuth (Auth.js)',
+      'Cloud IAM',
+      'Cloud Logging',
     ],
   },
 
@@ -53,26 +81,39 @@ The role required strong technical expertise, leadership skills, and the ability
     endDate: 'Sept 2024',
     duration: '1 yr 9 mos',
     location: 'Remote',
-    description: `
-Working with Antlers team I covered a variety of projects. Primarily working with React and Next.js. We ventured into blockchain, NFTs, CMS tools and more.
-    `,
+    description: `I worked on diverse projects including blockchain, NFTs, and CMS tools. We developed backend services with Node.js and TypeScript, and frontend applications using React and Next.js. With the team we integrated blockchain functionality using MetaMask and Web3.js. I played a major role implementing Payload CMS for content management and AWS S3 for image storage. Contributed to CI/CD processes and unit testing with Jest.`,
+    //     description: `
+    // Working with Antlers team I covered a variety of projects. We ventured into blockchain, NFTs, CMS tools and more. Primarily we worked together to formulate a team at One Tribe.
+
+    // - Developed and maintained backend services using Node.js and TypeScript, integrating with various data sources.
+    // - Used React and Next.js for frontend development, ensuring a responsive and dynamic user experience.
+    // - Worked with AWS S3 buckets for image storage and CDNs.
+    // - Worked with MetaMask and Web3.js for blockchain integration.
+    // - Created systems with Payload CMS, ensuring a flexible and scalable content management system.
+    // - Used CI/CD for deployment locally and in production, ensuring a fast and reliable deployment process.
+    // - Created unit tests with Jest, ensuring a comprehensive and reliable testing strategy, wherever we had budget to do so.
+    //     `,
     skills: [
       'Web Engineering',
-      'React',
-      'CI/CD',
-      'Jest',
       'JavaScript',
-      'Next.js',
-      'TypeScript',
+      'React',
       'Tailwind CSS',
-      'Payload CMS',
-      'Stripe',
+      'TypeScript',
+      'Next.js',
       'Node.js',
       'Express.js',
+      'MongoDB',
+      'Jest',
+      'Python',
+      'Django',
+      'FastAPI',
+      'docker',
+      'AWS',
+      'Payload CMS',
+      'Stripe',
+      'CI/CD',
       'Git',
       'GitHub',
-      'MongoDB',
-      'Stripe',
       'Contentful',
       'Vercel',
     ],
@@ -86,20 +127,38 @@ Working with Antlers team I covered a variety of projects. Primarily working wit
     endDate: 'Present',
     duration: '5 yrs 1 mo',
     location: 'Remote',
-    description: `As a seasoned freelance developer, I offer versatile services to a wide range of clients, from small businesses to large startups. My expertise span both frontend and backend development, with a focus on creating custom, innovative solutions tailored to each client's needs. I have worked with small businesses to large startups, primarily working with startups. I can adapt to any tool required, from Java to JavaScript.
-
-- Custom coding solutions
-- UX/UI design and implementation
-- Interactive UI components
-- Data manipulation and visualization
-- Standard website builds
-- Complex web applications`,
+    description: `I provide versatile development services to a diverse clientele, specializing in custom solutions for startups and greenfield projects. My expertise span frontend and backend development, with a focus on API development, full-stack applications, and cloud architecture. I possess proficient in multiple programming languages and frameworks, adapting to client needs and emerging technologies.`,
+    //     description: `As a seasoned freelance developer, I offer versatile services to a wide range of clients, from small businesses to large startups. My expertise span both frontend and backend development, with a focus on creating custom, innovative solutions tailored to each client's needs. I have worked with small businesses to large startups, primarily working with startups and greenfield projects. I can adapt to any tool required, from Java to JavaScript.
+    // - Building out APIs with Python, Django, FastAPI, Node.js, Express.js, and more
+    // - Building out full stack applications with React, Next.js, and more
+    // - Worked with GCP's serverless architecture: Firebase, Google Cloud Functions, gcloud cli, GCC, Cloud storage, Cloud IAM, Cloud monitoring and Logging.
+    // - Worked with AWS's serverless architecture: S3, IAM, API Gateway, CloudFormation, CloudWatch, and more.
+    // - Scripting with Python, Node.js and bash/zsh
+    // - UX/UI design and implementation
+    // - Interactive UI components
+    // - Data manipulation and visualization
+    // - Standard website builds
+    // - Complex web applications`,
 
     skills: [
+      'Generative AI prompting',
       'Web Engineering',
+      'JavaScript',
+      'React',
+      'Tailwind CSS',
+      'TypeScript',
+      'Next.js',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'Jest',
+      'Python',
+      'Django',
+      'FastAPI',
+      'docker',
+      'AWS',
       'Deck.gl',
       'Mapbox',
-      'React',
       'Gatsby',
       'Spring',
       'Thymeleaf',
@@ -108,16 +167,18 @@ Working with Antlers team I covered a variety of projects. Primarily working wit
       'SASS',
       'PostCSS',
       'Webpack',
-      'JavaScript',
       'Java',
-      'Animations',
+      'CSS Animations',
       'Responsive design',
-      'Bulma',
       'Tailwind',
-      'Bootstrap',
       'UX/UI design',
-      'Framer',
-      'Sketch',
+      'Figma',
+      'Payload CMS',
+      'Stripe',
+      'CI/CD',
+      'Git',
+      'Contentful',
+      'Vercel',
     ],
     links: {
       github: 'https://github.com/DaveMitten',
@@ -168,9 +229,7 @@ Working with Antlers team I covered a variety of projects. Primarily working wit
     endDate: 'Sep 2018',
     duration: '1 mo',
     location: 'London, United Kingdom',
-    description: `
-- Taught and wrote a 2 days introductory course into Bootstrap 
-- Helped students with demo projects using HTML5, Bootstrap in JSFiddle\n- Marked students work and gave feedback to help them improve`,
+    description: `I taught and wrote a 2 days introductory course into Bootstrap and helped students with demo projects using HTML5, Bootstrap in JSFiddle.`,
   },
   {
     title: 'Code Workshop Instructor',
@@ -181,10 +240,7 @@ Working with Antlers team I covered a variety of projects. Primarily working wit
     duration: '1 mo',
     location: 'London, United Kingdom',
     description: `
-- Designed a HTML/CSS course to teach the students basic
-- Intermediate level skills to help them design their final projects
-- Taught lessons over several days within workshops
-- Aided students in building out a project they could use as reference for their final projects`,
+I designed a HTML/CSS course to teach the students basic and intermediate level skills to help them design their final projects. I taught lessons over several days within workshops and aided students in building out a project they could use as reference for their final projects`,
   },
   {
     title: 'Junior Full Stack Developer',
