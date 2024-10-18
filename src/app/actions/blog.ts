@@ -14,6 +14,7 @@ export async function getPostsCollection() {
   try {
     const collection = await payload.find({
       collection: 'posts',
+      depth: 0,
     })
     if (!collection || collection.docs.length === 0) {
       return []
