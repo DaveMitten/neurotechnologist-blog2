@@ -38,7 +38,10 @@ export default function Page() {
 
   return (
     <main className="container mx-auto">
-      <Hero />
+      <Hero
+        title="Imagine | Create | Adapt"
+        description="Transforming ideas into robust, scalable solutions."
+      />
       <section className="flex justify-center mx-auto mb-16">
         <Card size="lg" className="border-transparent transition-colors duration-300">
           <CardTitle className="text-center">Current Tech Stack</CardTitle>

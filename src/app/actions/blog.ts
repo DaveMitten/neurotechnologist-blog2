@@ -13,7 +13,7 @@ export async function getPostsCollection() {
   revalidatePath('/blog', 'page')
   try {
     const collection = await payload.find({
-      collection: 'posts',
+      collection: 'blog-posts',
       depth: 0,
     })
     if (!collection || collection.docs.length === 0) {

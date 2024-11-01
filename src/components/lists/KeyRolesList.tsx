@@ -21,8 +21,6 @@ const KeyRolesList = ({ roles }: KeyRolesListProps) => {
     const id = role.company.replace(/\s+/g, '-').toLowerCase()
     return (
       <section key={role.title} className="mx-auto min-w-[350px] max-w-screen-md">
-        <h2 className="mb-8 text-center transition-colors duration-300">Key Roles</h2>
-
         <div className="flex justify-center">
           <div className="flex flex-col gap-4 max-w-screen-md">
             {roles.map((role) => (

@@ -1,6 +1,5 @@
-import { Clock9 } from 'lucide-react'
-import Post from '../../../../components/composite/PostPage'
-import { getPostBySlug } from '../../../actions/blog'
+import Post from '@/components/composite/PostPage'
+import { getPostBySlug } from '@/app/actions/blog'
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id: slug } = params

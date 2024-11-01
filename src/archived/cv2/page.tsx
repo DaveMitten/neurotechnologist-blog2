@@ -7,7 +7,7 @@ import { workExperience as experience } from '@/data/WorkData'
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import WorkExperience from '@/components/cards/WorkexperienceCard'
-import HtmlToPdfDownloadButton from '../../../components/composite/HtmlToPdfDownloadButton'
+import HtmlToPdfDownloadButton from '@/components/composite/HtmlToPdfDownloadButton'
 import { compile } from '@fileforge/react-print'
 
 export default function CVWrapper() {

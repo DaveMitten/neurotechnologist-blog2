@@ -19,6 +19,7 @@ import { useState } from 'react'
 import { PayloadInput } from '@/app/actions/tailwindstream'
 import { renderToString } from 'react-dom/server'
 import WorkExperience from '@/components/cards/WorkexperienceCard'
+import Hero from '../../../components/sections/Hero'
 
 function CVTypeSelect({
   label,
@@ -67,8 +68,14 @@ export default function CVWrapper() {
   // const [language, setLanguage] = useState<string>('python')
   // const [area, setArea] = useState<string>('fullstack')
   return (
-    <div className="bg-gray-900 w-full lg:pb-10 flex flex-col items-center justify-center p-4 space-y-4">
-      {/* language select
+    <div>
+      <Hero
+        title="CV"
+        description="A CV created with react components and tailwind css. It downloads to a PDF format."
+      />
+
+      <div className="max-w-screen-md mx-auto lg:pb-10 flex flex-col items-center justify-center py-4 space-y-4">
+        {/* language select
       <CVTypeSelect label="Language" items={['python', 'javascript']} setPayload={setLanguage} />
 
       <CVTypeSelect
@@ -76,14 +83,15 @@ export default function CVWrapper() {
         items={['fullstack', 'frontend', 'backend']}
         setPayload={setArea}
       /> */}
-      <DownloadTo payload={payload} setPayload={setPayload} />
-      <div className="text-center flex lg:hidden max-w-screen-md mx-auto bg-white text-gray-500 p-8 mb-10  flex-col items-center justify-center">
-        You are trying to view my CV which is optimised for print and desktop screens. Please
-        download it to view it.
-        <span className="text-sm mt-6">Thank you.</span>
-      </div>
-      <div className="hidden lg:block">
-        <CV />
+        <DownloadTo payload={payload} setPayload={setPayload} />
+        <div className="text-center flex lg:hidden max-w-screen-md mx-auto bg-white text-gray-500 p-8 mb-10  flex-col items-center justify-center">
+          You are trying to view my CV which is optimised for print and desktop screens. Please
+          download it to view it.
+          <span className="text-sm mt-6">Thank you.</span>
+        </div>
+        <div className="hidden lg:block">
+          <CV />
+        </div>
       </div>
     </div>
   )
