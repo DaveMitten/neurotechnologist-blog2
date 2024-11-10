@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import WorkExperienceCard from '../cards/WorkexperienceCard'
-import { WorkExperienceType } from '@/types/WorkExperienceType'
+import type { WorkExperienceType } from '@/types/general'
 
 const ExperienceList = ({ initialData }: { initialData: WorkExperienceType[] }) => {
   const [limit, setLimit] = useState(1)
