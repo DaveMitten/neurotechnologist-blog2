@@ -15,7 +15,8 @@ import TypescriptSVG from '@/components/logos/TypescriptSVG'
 import VercelSVG from '@/components/logos/VercelSVG'
 import JestSVG from '@/components/logos/JestSVG'
 import { workExperience as experience } from '../../data/WorkData'
-export const logos: { [key: string]: { svg: React.ReactNode; link: string } } = {
+
+const logos: { [key: string]: { svg: React.ReactNode; link: string } } = {
   react: { svg: <SVGContainer svg={ReactSVG} />, link: 'https://react.dev/' },
   javascript: {
     svg: <SVGContainer svg={JavascriptSVG} />,
