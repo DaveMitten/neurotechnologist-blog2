@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "vitest",
     "dev": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" next dev",
     "cm": "bash src/public/scripts/git-workflow.sh",
     "devturbo": "pnpm dev --turbo",
@@ -64,18 +65,26 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
+    "@testing-library/react": "13.3.0",
+    "@testing-library/user-event": "14.2.0",
     "@types/node": "^20.14.9",
     "@types/react": "npm:types-react@19.0.0-rc.0",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "@types/showdown": "^2.0.6",
+    "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
+    "cypress": "10.1.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "15.0.0-canary.104",
     "git-cz": "^4.9.0",
+    "jest": "28.1.1",
+    "jest-environment-jsdom": "28.1.1",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.12",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "vite-tsconfig-paths": "^5.1.1",
+    "vitest": "^2.1.4"
   },
   "pnpm": {
     "overrides": {
@@ -87,5 +96,5 @@
     "@types/react": "npm:types-react@19.0.0-rc.0",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
   },
-  "packageManager": "pnpm@7.21.1"
+  "packageManager": "pnpm@9.0.1"
 }

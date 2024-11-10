@@ -49,6 +49,71 @@ function CVTypeSelect({
   )
 }
 
+const dailyTech = [
+  'React',
+  'Javascript',
+  'Next.js',
+  'Jest',
+  'Tailwind CSS',
+  'TypeScript',
+  'Vercel',
+  'Payload CMS',
+  'Stripe',
+  'MongoDB',
+  'MongoDB Atlas',
+  'Mongoose',
+  'Express',
+  'Node',
+  'Firebase',
+  'Git',
+  'GCP',
+  'GitHub',
+  'PostgreSQL',
+  'Xata',
+  'CSS',
+  'Github CI/CD',
+  'HTML5',
+  'ES6',
+  'ESLint',
+  'Prettier',
+]
+const occasionalTech = [
+  'CRA',
+  'A/B Testing',
+  'Styled Components',
+  'AWS',
+  'React Router',
+  'Nest.js',
+  'React Native',
+  'Contentful',
+  'Python',
+  'Django',
+  'FastAPI',
+  'Cyber Security',
+  'Web3',
+  'Blockchain',
+  'Ethereum contract writing',
+  'Solidity',
+  'Styled Components',
+  'A/B Testing',
+  'jQuery',
+  'Monetate',
+  'swiper.js',
+  'Sass',
+  'A11y',
+  'WCAG 2.1',
+  'Bootstrap',
+  'Java',
+  'Spring Boot',
+  'Ant Design',
+  'Tan Stack Query',
+  'jQuery',
+  'Deck.gl',
+  'D3',
+  'Chart.js',
+  'Woocommerce',
+  'Wordpress',
+]
 export default function CVWrapper() {
   const cvHtml = renderToString(
     <div className="bg-white w-full text-left">
@@ -101,8 +166,8 @@ const leftSideCard = ({ title, items }: { title: string; items: string[] }) => {
   return (
     <div className="rounded-lg">
       <div className="text-xs mb-1 flex flex-col space-y-2">
-        <h4 className="text-[#2DD4BF] text-lg font-semibold">{title}: </h4>
-        <div className="flex flex-wrap gap-2">
+        <h4 className="text-[#2DD4BF] text-base font-semibold">{title}: </h4>
+        <div className="flex flex-wrap gap-1">
           {items.map((skill: string) => (
             <Badge key={skill} variant="outline" className="bg-white text-gray-500">
               {skill}
@@ -160,19 +225,19 @@ const links = [
 ]
 
 const leftSideCardDetails = [
+  { title: 'Tech I use daily', items: dailyTech },
+  { title: 'Tech I use occasionally', items: occasionalTech },
   {
-    title: 'Qualifications',
+    title: 'Qualifications & Certifications',
     items: [
-      'BA (Hons) Creative Music Technology',
-      'General Assembly Web Development Immersive Graduate',
+      'Bachelors Degree',
+      'Udemy Academy: React Front To Back',
+      'Javascript Algorithms and Data Structures',
+      'General Assembly Web Development Immersive',
     ],
   },
   {
-    title: 'Certifications',
-    items: ['Udemy Academy: React Front To Back', 'Javascript Algorithms and Data Structures'],
-  },
-  {
-    title: 'Something you might now know',
+    title: 'Something you might not know',
     items: [
       'In a previous life I was a frontman in a band. I still write and record music.',
       'I am a keen cook and love to try new recipes.',
@@ -193,59 +258,6 @@ const leftSideCardDetails = [
       'Code Reviews',
     ],
   },
-  {
-    title: 'Expanding on',
-    items: [
-      'Payload CMS',
-      'Next.js 15',
-      'Nest.js',
-      'React Native',
-      'Jest',
-      'General AI topics',
-      'Python',
-      'Django',
-      'FastAPI',
-      'Cyber Security',
-      'Web3',
-      'Blockchain',
-      'Ethereum contract writing',
-      'Solidity',
-      'Software Architecture',
-      'Design Patterns',
-    ],
-  },
-]
-
-const currentTechStack = [
-  'React',
-  'Javascript',
-  'Next.js',
-  'Jest',
-  'Python',
-  'Django',
-  'FastAPI',
-  'Pytest',
-  'React native',
-  'Tailwind CSS',
-  'TypeScript',
-  'Vercel',
-  'Payload CMS',
-  'Contentful',
-  'Stripe',
-  'MongoDB',
-  'Mongoose',
-  'Express',
-  'Node',
-  'Firebase',
-  'Git',
-  'GCP',
-  'AWS',
-  'GitHub',
-  'PostgreSQL',
-  'Xata',
-  'HTML',
-  'CSS',
-  'Github CI/CD',
 ]
 
 // const colors = { main: '#201915', header: '#2DD4BF', para: '#d9dada', highlight: '#da5d54' }
@@ -254,6 +266,7 @@ function CV() {
     <>
       <div className="max-w-screen-md mx-auto bg-white p-8 space-y-6">
         {/* page 1 */}
+        <div className="text-gray-500 text-xs">Page 1/4</div>
         <header className="flex flex-row gap-2 justify-between items-center">
           <div>
             <h1 className="text-3xl text-[#2DD4BF]">David James Mitten</h1>
@@ -268,73 +281,104 @@ function CV() {
           </div>
         </header>
         <div className="flex flex-col lg:flex-row gap-4">
-          {/* left side */}
-
-          <div className="flex flex-col gap-4 w-1/3">
-            {[
-              leftSideCardDetails[0],
-              leftSideCardDetails[1],
-              leftSideCardDetails[2],
-              leftSideCardDetails[3],
-              leftSideCardDetails[4],
-            ].map((card, index) => (
-              <Card
-                size="sm"
-                key={index}
-                className="bg-white border-transparent transition-colors duration-300 p-2 pt-0 pl-0"
-              >
-                <CardContent>
-                  {leftSideCard({
-                    title: card.title,
-                    items: card.items,
-                  })}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          {/* right side */}
-          <div className="w-2/3 space-y-4">
+          <div className="space-y-4">
             <section>
-              <h2 className="text-2xl font-semibold text-[#2DD4BF] mb-4">Professional Summary</h2>
+              <h2 className="text-xl font-semibold text-[#2DD4BF] mb-4">Professional Summary</h2>
               <p className={'text-gray-500 text-sm'}>
-                {/* Experienced fullstack developer with a passion for transforming ideas into robust,
-                scalable solutions. Proficient in modern web technologies and committed to creating
-                efficient, user-friendly applications. */}
-                Experienced fullstack developer with a strong background in Node.js, TypeScript,
-                React, and cloud technologies. Proven track record of designing and implementing
-                scalable microservices architectures and working with large data volumes. Adept at
-                rapidly delivering value through efficient system design and best practices
-                implementation.
+                Mission driven, startup veteran, 7+ years experienced fullstack developer with a
+                strong background in Node.js, TypeScript, React, and cloud technologies. Proven
+                track record of designing and implementing scalable microservices architectures and
+                working with large data volumes. Adept at rapidly delivering value through efficient
+                system design and best practices implementation.
               </p>
             </section>
 
-            <section>
-              <h2 className="text-2xl font-semibold text-[#2DD4BF] mb-4">Current Tech Stack</h2>
-              <div className="flex flex-wrap gap-2">
-                {currentTechStack.map((tech) => (
-                  <Badge key={tech} variant="outline" className="bg-white text-[#2DD4BF]">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </section>
-
-            <section className="space-y-4 break-after-column">
-              <h2 className="text-2xl font-semibold text-[#2DD4BF]">Professional Experience</h2>
-              {WorkExperience({ data: experience, limit: 1, full: true, cv: true })}
+            <section className="space-y-2">
+              <h2 className="text-xl font-semibold text-[#2DD4BF]">Professional Experience</h2>
+              {WorkExperience({ data: experience.slice(0, 2), full: true, cv: true })}
             </section>
           </div>
         </div>
         {/* page 2 */}
-        <div className="break-after-page"></div>
-        <section className="space-y-4 ">
+        <div className="break-after-page text-gray-500 text-xs"></div>
+        <div className=" text-gray-500 text-xs">Page 2/4</div>
+        <section className="space-y-2">
           {WorkExperience({
-            data: [experience[1], experience[2], experience[3], experience[4]],
-            limit: 4,
+            data: experience.slice(2, 6),
             full: true,
             cv: true,
           })}
         </section>
+        {/* page 3 break after currikula */}
+        <div className="break-after-page text-gray-500 text-xs"></div>
+        <div className=" text-gray-500 text-xs">Page 3/4</div>
+        <section className="space-y-2">
+          {WorkExperience({
+            data: experience.slice(6, 9),
+            full: true,
+            cv: true,
+          })}
+        </section>
+        {/* page 4 break after honest brew  */}
+        <div className="break-after-page text-gray-500 text-xs"></div>
+        <div className=" text-gray-500 text-xs">Page 4/4</div>
+        {/* left right section */}
+        {/* <div className="flex flex-row gap-4">
+          <section>
+            <h2 className="text-xl font-semibold text-[#2DD4BF] mb-4">Tech I use daily</h2>
+            <div className="flex flex-wrap gap-2">
+              {dailyTech.map((tech) => (
+                <Badge key={tech} variant="outline" className="bg-white text-gray-500">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </section>
+          <section>
+            <h2 className="text-xl font-semibold text-[#2DD4BF] mb-4">Tech I use occasionally</h2>
+            <div className="flex flex-wrap gap-2">
+              {occasionalTech.map((tech) => (
+                <Badge key={tech} variant="outline" className="bg-white text-gray-500">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </section>
+        </div> */}
+        {/* top */}
+        <div className="flex flex-row gap-x-1">
+          {[leftSideCardDetails[0], leftSideCardDetails[1]].map((card, index) => (
+            <Card
+              size="sm"
+              key={index}
+              className="bg-white border-transparent transition-colors duration-300 p-1 pt-0 pl-0"
+            >
+              <CardContent>
+                {leftSideCard({
+                  title: card.title,
+                  items: card.items,
+                })}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        {/* bottom */}
+        <div className="flex flex-row gap-x-1">
+          {[leftSideCardDetails[2], leftSideCardDetails[3]].map((card, index) => (
+            <Card
+              size="sm"
+              key={index}
+              className="bg-white border-transparent transition-colors duration-300 p-1 pt-0 pl-0"
+            >
+              <CardContent>
+                {leftSideCard({
+                  title: card.title,
+                  items: card.items,
+                })}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </>
   )

@@ -3,34 +3,27 @@ import { ChevronRight } from 'lucide-react'
 import { Badge } from '../ui/badge'
 import MarkdownRenderer from '../payload/markdown/MarkdownRenderer'
 import { Card, CardContent } from '../ui/card'
-import type { WorkExperience as WorkExperienceType } from '@/types/general'
-export const WorkExperience = ({
+import type { WorkExperienceType } from '@/types/general'
+export const WorkExperienceCard = ({
   data,
   limit,
   full,
   cv,
 }: {
   data: WorkExperienceType[]
-  limit: number
+  limit?: number
   full?: boolean
   cv?: boolean
   className?: string
 }) => {
+  let renderData = data
   if (!data) return null
-  return data?.slice(0, limit).map((work) => {
-    const {
-      title,
-      company,
-      employmentType,
-      startDate,
-      endDate,
-      duration,
-      location,
-      description,
-      skills,
-    } = work
+  if (limit) renderData = data.slice(0, limit)
+  return renderData?.map((work) => {
+    const { title, company, startDate, endDate, duration, location, description, skills } = work
     return (
       <Card
+        data-testid="work-experience-card"
         key={work.company}
         size={cv ? 'sm' : 'md'}
         className={clsx(
@@ -54,14 +47,6 @@ export const WorkExperience = ({
               </h4>
               <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>{company}</span>
             </div>
-            <div className="text-sm mb-1 flex flex-row items-center">
-              <h4 className={clsx(cv ? 'text-xs' : 'text-sm', 'text-[#2DD4BF] font-bold pr-1')}>
-                Employment Type:
-              </h4>
-              <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>
-                {employmentType}
-              </span>
-            </div>
             <div className="flex items-center text-sm mb-1">
               <h4 className={clsx(cv ? 'text-xs' : 'text-sm', 'text-[#2DD4BF] font-bold pr-1')}>
                 Dates:
@@ -83,22 +68,30 @@ export const WorkExperience = ({
               <span className={clsx(cv ? 'text-gray-500' : 'text-[#d9dada]')}>{location}</span>
             </div>
             {description && full && <MarkdownRenderer cv={true} content={description} />}
-            {skills && (
+
+            {skills ? (
               <div className="pt-4">
                 <h4 className="text-[#2DD4BF] text-sm font-bold mb-1">Skills:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills?.map((skill, index) => (
-                    <Badge
-                      key={skill}
-                      variant={cv ? 'outline' : 'secondary'}
-                      className={clsx(cv ? 'text-xs bg-white' : 'bg-gray-700', 'text-[#2DD4BF]')}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
+                <div className={clsx(cv ? 'gap-1' : 'gap-2', 'flex flex-wrap')}>
+                  {skills?.map((skill, index) => {
+                    return cv ? (
+                      <div key={skill} className="flex text-xs text-gray-500 ">
+                        {skill}
+                        {index !== skills.length - 1 && ','}
+                      </div>
+                    ) : (
+                      <Badge
+                        key={skill}
+                        variant={cv ? 'outline' : 'secondary'}
+                        className={clsx(cv ? 'text-xs bg-white' : 'bg-gray-700', 'text-[#2DD4BF]')}
+                      >
+                        {skill}
+                      </Badge>
+                    )
+                  })}
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
         </CardContent>
       </Card>
@@ -106,4 +99,4 @@ export const WorkExperience = ({
   })
 }
 
-export default WorkExperience
+export default WorkExperienceCard

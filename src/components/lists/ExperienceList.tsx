@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from 'react'
-import { workExperience as experience } from '../../data/WorkData'
 import { Button } from '@/components/ui/button'
 import WorkExperienceCard from '../cards/WorkexperienceCard'
+import { WorkExperienceType } from '@/types/WorkExperienceType'
 
-const ExperienceList = () => {
+const ExperienceList = ({ initialData }: { initialData: WorkExperienceType[] }) => {
   const [limit, setLimit] = useState(1)
 
   const handleMore = () => {
@@ -24,7 +24,7 @@ const ExperienceList = () => {
     <section className="mx-auto min-w-[350px] max-w-screen-md">
       <h2 className="mb-8 text-center transition-colors duration-300">Most Recent Roles</h2>
       <div className="flex flex-col gap-2">
-        <WorkExperienceCard data={experience} limit={limit} />
+        <WorkExperienceCard data={initialData} limit={limit} />
         <div className="flex justify-center gap-4">
           <Button
             className={limit > 1 ? 'bg-teal-400' : 'bg-gray-400 pointer-events-none'}

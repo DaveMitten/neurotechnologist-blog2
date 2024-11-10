@@ -33,10 +33,9 @@ export type ProjectsAndContributions = {
   subPoints: string[]
 }
 
-export type WorkExperience = {
+export type WorkExperienceType = {
   title: string
   company: string
-  employmentType: string
   startDate: string
   endDate: string
   duration: string
