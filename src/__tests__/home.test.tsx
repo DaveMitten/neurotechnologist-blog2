@@ -1,11 +1,11 @@
 import { render, cleanup, screen, fireEvent } from '@testing-library/react'
 import { describe, it, beforeEach, expect } from 'vitest'
 
-import { CurrentTechStack } from '../app/(app)/page'
-import ReactSVG from '../components/logos/ReactSVG'
-import TestingSVG from '../components/logos/ReactSVG'
-import SVGContainer from '../components/elements/SVGContainer'
-import ExperienceList from '../components/lists/ExperienceList'
+import { CurrentTechStack } from '@/components/cards/CurrentTechStack'
+import ReactSVG from '@/components/logos/ReactSVG'
+import TestingSVG from '@/components/logos/ReactSVG'
+import SVGContainer from '@/components/elements/SVGContainer'
+import ExperienceList from '@/components/lists/ExperienceList'
 
 // Add mock logos array
 const mockLogos = {
@@ -22,6 +22,7 @@ const mockData = Array(6).fill({
   location: 'Test Location',
   skills: ['Skill 1', 'Skill 2'],
 })
+
 describe('Home Page', () => {
   beforeEach(() => cleanup())
 
